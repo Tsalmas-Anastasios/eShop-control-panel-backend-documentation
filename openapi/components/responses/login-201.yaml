@@ -1,0 +1,180 @@
+type: object
+title: login_response
+properties:
+  session:
+    type: object
+  user:
+    type: object
+    properties:
+      user_id:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      email:
+        type: string
+      username:
+        type: string
+      phone:
+        type: string
+      profile_picture_url:
+        type: string
+      created_at:
+        type: string | Date
+      role:
+        type: string
+      is_account:
+        type: boolean
+      using_bizyhive_cloud:
+        type: boolean
+      account_type:
+        type: '"account" | "user"'
+      authentication_2fa__app:
+        type: boolean
+      authentication_2fa__email:
+        type: boolean
+      authentication_2fa__app_secret:
+        type: string
+      company_data:
+        type: object
+        properties:
+          rec_id:
+            type: string
+          business_name:
+            type: string
+          shop_name:
+            type: string
+          tax_id:
+            type: string
+          tax_authority:
+            type: string
+          contact_person__first_name:
+            type: string
+          contact_person__last_name:
+            type: string
+          contact_person__middle:
+            type: string
+          contact_email:
+            type: string
+          contact_phone:
+            type: string
+          company_email:
+            type: string
+          company_phone:
+            type: string
+          shop_url:
+            type: string
+          shop_type:
+            type: string
+          products_categories: 
+            type: string
+          headquarters_address__street:
+            type: string
+          headquarters_address__city:
+            type: string
+          headquarters_address__postal_code:
+            type: string
+          headquarters_address__state:
+            type: string
+          headquarters_address__country:
+            type: string
+          headquarters_latitude:
+            type: number
+          headquarters_longitude:
+            type: number
+          operating_hours__monday_start:
+            type: string
+          operating_hours__monday_end:
+            type: string
+          operating_hours__monday_close:
+            type: boolean
+          operating_hours__tuesday_start:
+            type: string
+          operating_hours__tuesday_end:
+            type: string
+          operating_hours__tuesday_close:
+            type: boolean
+          operating_hours__wednesday_start:
+            type: string
+          operating_hours__wednesday_end:
+            type: string
+          operating_hours__wednesday_close:
+            type: boolean
+          operating_hours__thursday_start:
+            type: string
+          operating_hours__thursday_end:
+            type: string
+          operating_hours__thursday_close:
+            type: boolean
+          operating_hours__friday_start:
+            type: string
+          operating_hours__friday_end:
+            type: string
+          operating_hours__friday_close:
+            type: boolean
+          operating_hours__saturday_start:
+            type: string
+          operating_hours__saturday_end:
+            type: string
+          operating_hours__saturday_close:
+            type: boolean
+          operating_hours__sunday_start:
+            type: string
+          operating_hours__sunday_end:
+            type: string
+          operating_hours__sunday_close:
+            type: boolean
+          facebook_url:
+            type: string
+          instagram_url:
+            type: string
+          twitter_url:
+            type: string
+          linkedIn_url:
+            type: string
+          youtube_url:
+            type: string
+          whatsapp_url:
+            type: string
+          tiktok_url:
+            type: string
+          google_business_url:
+            type: string
+          shop_google_rate_url:
+            type: string
+          company_description:
+            type: string
+          shop_logo:
+            type: string
+          connected_account_id:
+            type: string
+          coin_symbol:
+            type: string
+          coin_label:
+            type: string
+          coin_description:
+            type: string
+          coin_correspondence_in_eur:
+            type: number
+          coin_value:
+            type: string
+          fee_percent:
+            type: number
+          slug:
+            type: string
+      privileges:
+        type: array
+        items:
+          type: object
+          properties:
+            rec_id:
+              type: number
+            privilege_type:
+              type: string
+            value:
+              type: boolean
+            user_id:
+              type: string
+            connected_account_id:
+              type: string

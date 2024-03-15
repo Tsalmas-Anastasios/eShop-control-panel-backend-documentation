@@ -1,0 +1,9 @@
+type: object
+title: login_request
+properties:
+  username:
+    type: string
+  password:
+    type: string
+  remember_me:
+    type: boolean

@@ -1,80 +1,79 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: Example API
-  termsOfService: https://example.com/terms/
-  contact:
-    email: contact@example.com
-    url: http://example.com/contact
-  license:
-    name: Apache 2.0
-    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Control Panel - Bizyhive suit
+  # contact:
+  #   email: contact@example.com
+  #   url: http://example.com/contact
+  # license:
+  #   name: Apache 2.0
+  #   url: http://www.apache.org/licenses/LICENSE-2.0.html
   x-logo:
-    url: https://redocly.github.io/openapi-template/logo.png
+    url: https://adorithm.com/assets/apps/bizyhive/ecommerce-control-panel/logo.png
   description: >
-    This is an **example** API to demonstrate features of the OpenAPI
-    specification.
+    Control Panel (part of Bizyhive suit) API is a RESTful interface that exposes a collection of resources associated with a Control Panel's account and even more.
 
-    # Introduction
 
-    This API definition is intended to to be a good starting point for
-    describing your API in [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md).
+    **Available resources**
 
-    It also demonstrates features of the
-    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
-    and the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
-    the standard OpenAPI syntax, we use a few 
-    [vendor extensions](https://github.com/Redocly/Redoc/blob/main/docs/redoc-vendor-extensions.md).
+    - **Authentication**: This resource provides various methods for creating and managing various methods for authenticating and managing a user's accounts.
 
-    # OpenAPI Specification
+    - **Company data**: This resource provides various methods for managing the data of an application-contracted company.
 
-    The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
+    - **Email integrations**: This resource provides various methods for the creation and harmonious management of emails connected to the company's application (via SMTP).
+
+    - **Company's warehouses**: This resource provides methods for the creation and management of a set of warehouses belonging to the company and storing its products, in order to properly regulate the allocation and distribution of its products.
+
+    - **Connected users**: This resource provides all the methods given for managing the users connected to the company, managing the rights to use the application as well as their information on the part of the administrators.
+
+    - **Contacts system**: This resource provides all methods given for creating and managing contacts and all associated items.
+
+    - **Dashboard stats**: This resource provides all methods for getting and accessing statistics displayed in the application dashboard.
+
+    - **Employees system**: This resource provides all the methods for creating and managing the tabs of the company's employees and workers. The tab provides personal data as well as data related to the work environment, such as working hours.
+
+    - **Famous products**: This resource provides methods for accessing popular products in general or by category.
+
+    - **Orders system**: This resource provides methods for creating, accessing and optimally managing orders for each company.
+
+    - **Products system**: This resource provides methods for creating and fully managing the products that each company markets and manages.
+
+    - **Total sales amount**: This resource provides methods for accessing sales statistics.
+
+    - **Newsletter system**: System for managing, creating and sending emails (newsletter) to the company's customers.
+
+
+
 tags:
-  - name: Echo
-    description: Example echo operations.
-  - name: User
-    description: Operations about users.
-  - name: Tag
-    description: This is a tag description.
+  - name: Authentication
+    description: API EndPoints for Authentication.
+  - name: Company data
+    description: API EndPoints for Company data.
+  - name: Email integrations
+    description: API EndPoints for Email integrations.
+  - name: Company's warehouses
+    description: API EndPoints for Company's warehouses
+  - name: Connected users
+    description: API EndPoints for Connected users
+  - name: Contacts system
+    description: API EndPoints for Contacts system
+  - name: Dashboard stats
+    description: API EndPoints for Dashboard stats
+  - name: Employees system
+    description: API EndPoints for Employees system
+  - name: Famous products
+    description: API EndPoints for Famous products
+  - name: Orders system
+    description: API EndPoints for Orders system
+  - name: Products system
+    description: API EndPoints for Products system
+  - name: Total sales amount
+    description: API EndPoints for Total sales amount
+  - name: Newsletter system
+    description: API EndPoints for Newsletter system
 servers:
-  - url: https://{tenant}/api/v1
-    variables:
-      tenant:
-        default: www
-        description: Your tenant id
-  - url: https://example.com/api/v1
+  - url: https://localhost:8080/api
+  - url: https://control-panel.bizyhive.com/api
 paths:
-  /users/{username}:
-    $ref: paths/users_{username}.yaml
-  /echo:
-    $ref: paths/echo.yaml
-  /pathItem:
-    $ref: paths/pathItem.yaml
-  /pathItemWithExamples:
-    $ref: paths/pathItemWithExamples.yaml
-components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: http://example.com/api/oauth/dialog
-          scopes:
-            read:users: read users info
-            write:users: modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+  /auth/login:
+    $ref: paths/authentication/login.yaml
