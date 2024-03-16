@@ -1,0 +1,113 @@
+
+get:
+  tags:
+    - Authentication
+  summary: User account activation
+  description: |
+    It checks if the account has been activated and if it has not been activated, it activates it.
+  operationId: accountActivation
+  parameters:
+    - name: key
+      in: query
+      schema:
+        type: string
+      description: The JWT key that used to decoded and get the user's data to activate the user's account
+  responses:
+    '200':
+      description: OK - Account activated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: successful_account_activation
+              message:
+                type: string
+                example: User account activated successfully!
+              user_id:
+                type: string
+    '201':
+      description: OK - Account already activated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: already_activated
+              message:
+                type: string
+                example: This account (account email) has been already activated
+    '400':
+        description: Parameters are missing
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: number
+                  example: 400
+                type:
+                  type: string
+                  example: bad_request
+                message: 
+                  type: string
+                  example: Activation parameters are missing!
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: unauthorized
+              message:
+                type: string
+                example: The key isn't an activation token
+    '419':
+      description: Activation key has expired
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 419
+              type:
+                type: string
+                example: activation_key_expired
+              message:
+                type: string
+                example: Activation key has expired
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

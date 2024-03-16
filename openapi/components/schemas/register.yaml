@@ -1,0 +1,25 @@
+type: object
+title: register_request
+properties:
+  first_name:
+    type: string
+  last_name:
+    type: string
+  email:
+    type: string
+  username:
+    type: string
+  password:
+    type: string
+  confirm_password:
+    type: string
+  phone:
+    type: string
+  company_name:
+    type: string
+  is_account:
+    type: boolean
+  role:
+    type: string
+  using_bizyhive_cloud:
+    type: boolean

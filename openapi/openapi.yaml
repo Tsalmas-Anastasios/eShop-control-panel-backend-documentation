@@ -77,3 +77,17 @@ servers:
 paths:
   /auth/login:
     $ref: paths/authentication/login.yaml
+  /auth/register:
+    $ref: paths/authentication/register.yaml
+  /auth/email-activation:
+    $ref: paths/authentication/email-activation.yaml
+  /auth/request-new-password:
+    $ref: paths/authentication/request-new-password.yaml
+  /auth/check-password-change-token:
+    $ref: paths/authentication/check-password-change-token.yaml
+  /auth/change-password:
+    $ref: paths/authentication/change-password.yaml
+  /auth/logout:
+    $ref: paths/authentication/logout.yaml
+  /auth/change-password-directly:
+    $ref: paths/authentication/change-password-directly.yaml

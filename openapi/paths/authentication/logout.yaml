@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Authentication
+  summary: User logout
+  description: |
+    Disconnects the user from the system.
+  operationId: userLogout
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              status:
+                type: string
+                example: 200 OK
+              message:
+                type: string
+                example: Logout OK
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

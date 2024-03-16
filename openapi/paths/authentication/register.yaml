@@ -1,33 +1,46 @@
 post:
   tags:
     - Authentication
-  summary: User login
+  summary: User register
   description: |
-    Checks for successful payment of the user's login details, if the account exists and has been activated.
-    If the login process is successfully completed, an object is returned with the user's details and the account of the company to which the user belongs.
-  operationId: userLogin
+    The successful payment of the user's items and data is checked and an account is created (account level).
+  operationId: accountRegister
   requestBody:
     content:
       application/json:
         schema:
-          $ref: ../../components/schemas/login.yaml
+          $ref: ../../components/schemas/register.yaml
     description: requestBody description
     required: true
   responses:
     '200':
-      description: OK - if the user has **disabled** the 2FA system
+      description: OK
       content:
         application/json:
           schema:
-            $ref: ../../components/responses/login-200.yaml
-    '201':
-      description: OK - if the user has **enabled** the 2FA system
-      content:
-        application/json:
-          schema:
-            $ref: ../../components/responses/login-201.yaml
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: user_account_created_successfully
+              activation_key:
+                type: string
+                example: 123456789123456789
+              new_user_id:
+                type: string
+                example: acc_jasfjkbafhjabjhabjshdbahsdb
+              username:
+                type: string
+              email:
+                type: string
+              message:
+                type: string
+                example: Account / User created successfully
     '400':
-      description: Login credentials are missing
+      description: bad_request
       content:
         application/json:
           schema:
@@ -41,9 +54,9 @@ post:
                 example: bad_request
               message:
                 type: string
-                example: Login credentials are missing
-    '403':
-      description: Your email is not activated
+                example: '"Credentials to register the user are missing" | "The connected account credentials are missing" | "Company name is missing"'
+    '401':
+      description: username_exists, email_exists, phone_exists, invalid_data
       content:
         application/json:
           schema:
@@ -51,15 +64,13 @@ post:
             properties:
               code:
                 type: number
-                example: 403
+                example: 401
               type:
                 type: string
-                example: forbidden
               message:
                 type: string
-                example: Your email is not activated
-    '493':
-      description: Wrong password
+    '402':
+      description: password_out_of_range, password_not_strength
       content:
         application/json:
           schema:
@@ -67,29 +78,11 @@ post:
             properties:
               code:
                 type: number
-                example: 493
+                example: 402
               type:
                 type: string
-                example: forbidden
               message:
                 type: string
-                example: Wrong password
-    '404':
-      description: User not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              code:
-                type: number
-                example: 404
-              type:
-                type: string
-                example: user_not_found_username_or_email_wrong
-              example:
-                type: string
-                example: User not found
     '500':
       description: Internal server error
       content:
