@@ -1,0 +1,104 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA App De-Activation
+  description: |
+    The two-step verification mechanism by app is de-activated.
+  operationId: authentication2faAppDeActivation
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: service_disabled
+              message:
+                type: string
+                example: 2FA via Authenticator App service disabled successfully
+    '402':
+      description: no_connection_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 402
+              type:
+                type: string
+                example: no_connection_found
+              message:
+                type: string
+                example: The 2FA service via Authenticator app is not enabled
+    '404':
+      description: no_secret_key_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: no_secret_key_found
+              message:
+                type: string
+                example: Secret key to validate this action cannot be found
+    '400':
+      description: token_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: token_not_found
+              message:
+                type: string
+                example: Token to validate not found
+    '403':
+      description: token_invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: token_invalid
+              message:
+                type: string
+                example: 6-digit code is not valid
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

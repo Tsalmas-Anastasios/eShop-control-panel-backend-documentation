@@ -91,3 +91,37 @@ paths:
     $ref: paths/authentication/logout.yaml
   /auth/change-password-directly:
     $ref: paths/authentication/change-password-directly.yaml
+  /authentication/account/security/2fa/email/authentication-code/send-email:
+    $ref: paths/authentication/authentication-2fa-send-email.yaml
+  /settings/account/security/2fa/email/activate:
+    $ref: paths/authentication/activate-2fa-mechanism-via-email.yaml
+  /settings/account/security/2fa/email/de-activate:
+    $ref: paths/authentication/deActivate-2fa-mechanism-via-email.yaml
+  /authentication/account/security/2fa/email/authentication-code/check:
+    $ref: paths/authentication/authentication-2fa-check-email.yaml
+  /authentication/account/security/2fa/app/authentication-code/key:
+    $ref: paths/authentication/authentication-2fa-app-secret.yaml
+  /settings/accouns/security/2fa/app/enable:
+    $ref: paths/authentication/activate-2fa-mechanism-via-app.yaml
+  /settings/account/security/2fa/app/disable:
+    $ref: paths/authentication/deActivate-2fa-mechanism-via-app.yaml
+  /authentication/account/security/2fa/app/authentication-code/verify:
+    $ref: paths/authentication/verify-authentication-code-2fa-app.yaml
+  /settings/company-data/get:
+    $ref: paths/company-data/get-company-data.yaml
+  /settings/company-data/save-logo:
+    $ref: paths/company-data/save-logo.yaml
+  /api/settings/company-data/add-new-rec:
+    $ref: paths/company-data/add-company-data.yaml
+  /settings/company-data/update/{rec_id}:
+    $ref: paths/company-data/update-company-data.yaml
+  /settings/company-data/slug/check-exists:
+    $ref: paths/company-data/slug-exists.yaml
+  /account/settings/company-emails:
+    $ref: paths/email-integrations/get-emails.yaml
+  /account/settings/company-emails/new:
+    $ref: paths/email-integrations/new-email.yaml
+  /account/settings/company-emails/{email_id}:
+    $ref: paths/email-integrations/spec-email.yaml
+  /account/settings/company-emails/test/test-email:
+    $ref: paths/email-integrations/test-email.yaml

@@ -1,0 +1,99 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA Email De-Activation
+  description: |
+    The two-step verification mechanism by email is de-activated.
+  operationId: authentication2faEmailDeActivation
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 6 digit code
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: authentication_2fa__email_activated
+              message:
+                type: string
+                example: Email 2FA authentication service activated
+    '403':
+      description: no_connection_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: no_connection_found
+              message:
+                type: string
+                example: The 2FA service via Email is not enabled
+    '400':
+      description: connection_adopted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: connection_adopted
+              message:
+                type: string
+                example: No credentials found to proceed the execute
+    '404':
+      description: request_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: request_not_found
+              message:
+                type: string
+                example: No code to be authenticated found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

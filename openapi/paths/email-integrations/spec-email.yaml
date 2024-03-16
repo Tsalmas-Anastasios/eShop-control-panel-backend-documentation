@@ -1,0 +1,199 @@
+put:
+  tags:
+    - Email integrations
+  summary: Update email
+  description: |
+    Update an email that is already exist.
+  operationId: updateEmail
+  parameters:
+    - name: email_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/email-integration.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: email_updated
+              message:
+                type: string
+                example: Email successfully updated
+    '400':
+      description: nothing_to_update
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: nothing_to_update
+              message:
+                type: string
+                example: Nothing to update
+    '404':
+      description: email_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: email_not_found
+              message:
+                type: string
+                example: Email you are looking for, not found
+    '403':
+      description: invalid_email_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: invalid_email_data
+              message:
+                type: string
+                example: Email validation failed! Please try again with other credentials
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+get:
+  tags:
+    - Email integrations
+  summary: Get email
+  description: |
+    Get an email that is already exist.
+  operationId: getEmail
+  parameters:
+    - name: email_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/email-integration.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Email integrations
+  summary: Delete email
+  description: |
+    Delete an email that is already exist.
+  operationId: deleteEmail
+  parameters:
+    - name: email_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: email_deleted
+              message:
+                type: string
+                example: Email deleted successfully
+    '404':
+      description: email_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: email_not_found
+              message:
+                type: string
+                example: Email you are looking for, not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

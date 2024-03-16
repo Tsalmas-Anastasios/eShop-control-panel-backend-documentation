@@ -1,0 +1,70 @@
+put:
+  tags:
+    - Company data
+  summary: Update company data
+  description: |
+    Updates the details of a company when the registration already exists
+  operationId: updateCompanyData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/company-data.yaml
+    description: requestBody description
+    required: true
+  parameters:
+    - name: rec_id
+      in: path
+      description: The record's id (record that includes the company's data)
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: company_data_updated
+              message:
+                type: string
+                example: Company's data updated
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data and cannot be updated
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

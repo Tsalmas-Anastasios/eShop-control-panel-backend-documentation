@@ -1,0 +1,66 @@
+post:
+  tags:
+    - Company data
+  summary: Save new company data
+  description: |
+    Saves the company's data if we not have any previous records for the specific company
+  operationId: saveCompanyData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/company-data.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: company_data_saved
+              message:
+                type: string
+                example: Company data saved successfully!
+              rec_id:
+                type: string
+                example: new_rec_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to be added
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,65 @@
+post:
+  tags:
+    - Company data
+  summary: Save company's logo
+  description: |
+    Saves the company's logo
+  operationId: saveCompanyLogo
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            company_logo:
+              type: string (binary)
+    description: Send here using the 'company_logo' prefix the company's logo
+    required: true
+  responses:
+    '200':  
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: logo_saved
+              message:
+                type: string
+                example: Company's logo saved successfully
+              originalName:
+                type: string
+                example: company-logo.png
+              mimetype:
+                type: string
+                example: png
+              destination:  
+                type: string
+                example: https://...
+              filename:
+                type: string
+                example: company-logo-renamed.png
+              file_url:
+                type: string
+                example: https://.../company-logo-renamed.png
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

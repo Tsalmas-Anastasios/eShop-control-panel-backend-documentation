@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Company data
+  summary: Get Company's data
+  description: |
+    Returns the object that contains the company data associated with the account in question.
+  operationId: getCompanyData
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/company-data.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

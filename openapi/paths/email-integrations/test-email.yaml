@@ -1,0 +1,79 @@
+post:
+  tags:
+    - Email integrations
+  summary: Test email connection
+  description: |
+    Test if the email's data are correct.
+  operationId: testEmail
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/email-integration.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: email_verified
+              message:
+                type: string
+                example: Email connection verified successfully
+    '403':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to insert new email
+    '400':
+      description: invalid_email_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: invalid_email_data
+              message:
+                type: string
+                example: Email validation failed! Please try again with other credentials
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

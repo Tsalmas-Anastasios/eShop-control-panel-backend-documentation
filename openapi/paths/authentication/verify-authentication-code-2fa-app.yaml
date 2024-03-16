@@ -1,0 +1,89 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA App code verification
+  description: |
+    Used to check and confirm the six-digit code generated in the authenticator app.
+  operationId: authentication2faAppCodeVerification
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            code:
+              type: string
+              example: 6 digit code
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/login-200.yaml
+    '404':
+      description: no_token_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: no_token_found
+              message:
+                type: string
+                example: No token submitted with form
+    '400':
+      description: forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: forbidden
+              message:
+                type: string
+                example: Missing credentials
+    '403':
+      description: token_not_match
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: token_not_match
+              message:
+                type: string
+                example: Tokens aren't match
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

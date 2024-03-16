@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Email integrations
+  summary: Get emails
+  description: |
+    Returns the list of emails that the company has connected to the application.
+  operationId: getEmailIntegrations
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/email-integration.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

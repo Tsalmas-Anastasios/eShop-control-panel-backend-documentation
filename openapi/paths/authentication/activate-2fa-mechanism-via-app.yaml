@@ -1,0 +1,86 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA App Activation
+  description: |
+    The two-step verification mechanism by app is activated.
+  operationId: authentication2faAppActivation
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            secret:
+              type: string
+              example: secret key base32 encoded
+            code:
+              type: string
+              example: 6 digit code
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: connection_succeeded
+              message:
+                type: string
+                example: Connection with authenticator app created successfully
+    '400':
+      description: forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: forbidden
+              message:
+                type: string
+                example: Missing credentials
+    '403':
+      description: token_validation_failed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: token_validation_failed
+              message:
+                type: string
+                example: The token cannot be verified
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

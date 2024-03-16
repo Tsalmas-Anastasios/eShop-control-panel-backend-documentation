@@ -1,0 +1,41 @@
+get:
+  tags:
+    - Company data
+  summary: Check slug exists
+  description: |
+    Checks if the specific slug a company wants to use exists.
+  operationId: checkCompanySlugExists
+  parameters:
+    - name: new_slug
+      in: query
+      description: Slug value
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+                example: true
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

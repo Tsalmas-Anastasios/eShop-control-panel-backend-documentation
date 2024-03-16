@@ -1,0 +1,98 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA Check 6 digit code
+  description: |
+    The validity of the six-digit code is checked before access is granted.
+  operationId: authentication2faCheckEmail
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            code:
+              type: number
+              example: 200
+            session_data:
+              type: object
+              example: {}
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: ../../components/responses/login-200.yaml
+              is_valid:
+                type: boolean
+                example: true
+    '400':
+      description: connection_adopted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: connection_adopted
+              message:
+                type: string
+                example: No credentials found to proceed the execute
+    '401':
+      description: no_session_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: no_session_found
+              message:
+                type: string
+                example: Session data doesn't found
+    '404':
+      description: request_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: request_not_found
+              message:
+                type: string
+                example: No code to be authenticated found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

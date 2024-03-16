@@ -1,0 +1,80 @@
+post:
+  tags:
+    - Email integrations
+  summary: New email
+  description: |
+    Create and save a new email.
+  operationId: addNewEmail
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/email-integration.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: email_inserted
+              message:
+                type: string
+                example: New email inserted successfully
+              email_id:
+                type: string
+                example: new_email_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to insert new email
+    '403':  
+      description: invalid_email_data
+      content:
+        application/json:
+          schema:
+            properties:
+              code:
+                type: number
+                example: 403
+              type: 
+                type: string
+                example: invalid_email_data
+              message:
+                type: string
+                example: Email validation failed! Please try again with other credentials
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

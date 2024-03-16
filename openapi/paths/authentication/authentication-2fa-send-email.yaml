@@ -1,0 +1,49 @@
+put:
+  tags:
+    - Authentication
+  summary: 2FA Send Email
+  description: |
+    An email is sent with the one-time password that will be used for two-step authentication for a user.
+  operationId: authentication2faSendEmail
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/responses/login-200.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: waiting_for_authentication
+              message:
+                type: string
+                example: Waiting for authentication
+              emailId:
+                type: string
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
