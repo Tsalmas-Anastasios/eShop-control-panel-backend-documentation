@@ -1,0 +1,99 @@
+put:
+  tags:
+    - Connected users
+  summary: Modify privileges
+  description: |
+    Modify the permissions of a user's application.
+  operationId: modifyPrivileges
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            user_privileges:
+              type: object
+              properties:
+                rec_id:
+                  type: number
+                privilege_type:
+                  type: string
+                value:
+                  type: boolean
+                user_id:
+                  type: string
+                connected_account_id:
+                  type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: user_privileges_updated
+              message:
+                type: string
+                example: User privileges updated successfully
+    '400':
+      description: data_missing
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: data_missing
+              message:
+                type: string
+                example: Data missing and cannot be updated
+    '404':
+      description: user_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: user_not_found
+              message:
+                type: string
+                example: User didn't found or isn't connected with current account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

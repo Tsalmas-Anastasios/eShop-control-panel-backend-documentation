@@ -1,0 +1,13 @@
+type: object
+title: contact_phone_schema
+properties:
+  rec_id:
+    type: string
+  label:
+    type: string
+  phone:
+    type: string
+  connected_account_id:
+    type: string
+  contact_id:
+    type: string

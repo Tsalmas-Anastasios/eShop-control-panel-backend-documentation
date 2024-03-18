@@ -1,0 +1,50 @@
+type: object
+title: user_object
+properties:
+  id:
+    type: string
+  first_name:
+    type: string
+  last_name:
+    type: string
+  email:
+    type: string
+  username:
+    type: string
+  password:
+    type: string
+  phone:
+    type: string
+  profile_picture_url:
+    type: string
+  activated:
+    type: boolean
+  request_password_change:
+    type: boolean
+  created_at:
+    type: string | Date
+  connected_account:
+    type: string
+  is_account:
+    type: boolean
+  role:
+    type: string
+  role_name:
+    type: string
+  using_bizyhive_cloud:
+    type: boolean
+  authentication_2fa__app:
+    type: boolean
+  authentication_2fa__email:
+    type: boolean
+  authentication_2fa__app_secret:
+    type: string
+  sessions:
+    type: object
+    properties:
+      sid:
+        type: string
+      expires:
+        type: number
+      data:
+        type: string

@@ -1,0 +1,113 @@
+get:
+  tags:
+    - Contacts system
+  summary: Get specific list
+  description: |
+    Get the specific (based on query parameters) lists associated with an account
+  operationId: specificContactsList
+  parameters:
+    - name: contact_id
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: name
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: father_name
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: surname
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: mother_name
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: alias
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: company
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: work_position_title
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: contact_label_id
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: contact_label_str
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: phone_number
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: contact_email
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: private
+      in: query
+      required: false
+      schema:
+        type: boolean
+    - name: private_user_id
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: favorite
+      in: query
+      required: false
+      schema:
+        type: boolean
+    - name: page
+      in: query
+      required: false
+      schema:
+        type: number
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/contact-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

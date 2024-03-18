@@ -1,10 +1,10 @@
 get:
   tags:
-    - Company's warehouses
-  summary: Get warehouses
+    - Connected users
+  summary: Get users
   description: |
-    The list with the detailed information for all warehouses of a company is returned.
-  operationId: getWarehouses
+    Gte the general list of connected users for a company account
+  operationId: getUsersList
   responses:
     '200':
       description: OK
@@ -13,7 +13,7 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../components/schemas/warehouses.yaml
+              $ref: ../../components/responses/login-200.yaml
     '500':
       description: Internal server error
       content:

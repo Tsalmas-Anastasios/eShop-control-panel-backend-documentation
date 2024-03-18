@@ -1,0 +1,56 @@
+put:
+  tags:
+    - Contacts system
+  summary: Toggle favorite
+  description: |
+    Changes the status of the favorite property for a contact.
+  operationId: toggleContactFavorite
+  parameters:
+    - name: contact_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            favorite:
+              type: boolean
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: toggle_favorite
+              message:
+                type: string
+                example: Favorite status changed successfully
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

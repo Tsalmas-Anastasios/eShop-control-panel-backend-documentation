@@ -1,0 +1,61 @@
+get:
+  tags:
+    - Connected users
+  summary: Get primary account
+  description: |
+    Get primary (company's) account
+  operationId: getPrimaryAccount
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              email:
+                type: string
+              username:
+                type: string
+              phone:
+                type: string
+              profile_picture_url:
+                type: string
+              created_at:
+                type: string | Date
+              role:
+                type: string
+              is_account:
+                type: boolean
+              using_bizyhive_cloud:
+                type: boolean
+              account_type:
+                type: '"account" | "user"'
+              authentication_2fa__app:
+                type: boolean
+              authentication_2fa__email:
+                type: boolean
+              authentication_2fa__app_secret:
+                type: string
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

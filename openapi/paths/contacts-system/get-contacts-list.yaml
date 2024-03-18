@@ -1,10 +1,10 @@
 get:
   tags:
-    - Company's warehouses
-  summary: Get warehouses
+    - Contacts system
+  summary: Get list
   description: |
-    The list with the detailed information for all warehouses of a company is returned.
-  operationId: getWarehouses
+    Get the general lists associated with an account
+  operationId: generalContactsList
   responses:
     '200':
       description: OK
@@ -13,7 +13,7 @@ get:
           schema:
             type: array
             items:
-              $ref: ../../components/schemas/warehouses.yaml
+              $ref: ../../components/schemas/contact-schema.yaml
     '500':
       description: Internal server error
       content:

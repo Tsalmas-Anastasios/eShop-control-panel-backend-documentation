@@ -1,0 +1,21 @@
+type: object
+title: contact_address_schema
+properties:
+  rec_id:
+    type: string
+  country:
+    type: string
+  address:
+    type: string
+  address_line_2:
+    type: string
+  postal_code:
+    type: string
+  city:
+    type: string
+  postal_vault:
+    type: string
+  connected_account_id:
+    type: string
+  contact_id:
+    type: string

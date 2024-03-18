@@ -1,0 +1,63 @@
+post:
+  tags:
+    - Company's warehouses
+  summary: New warehouse
+  description: |
+    Create a new warehouse
+  operationId: newWarehouse
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/warehouses.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: warehouse_saved
+              message:
+                type: string
+                example: Warehouse saved successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to be updated
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

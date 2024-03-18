@@ -1,0 +1,97 @@
+get:
+  tags:
+    - Connected users
+  summary: Resend verification email
+  description: |
+    Resending the email message to verify and activate a new logged in user.
+  operationId: resendVerificationEmail
+  parameters:
+    - name: user_id
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: email_sent
+              message:
+                type: string
+                example: Activation email sent successfully
+              emailId:
+                type: string
+                example: email_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data and cannot locate the user
+    '404':
+      description: user_not_exist
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: user_not_exist
+              message:
+                type: string
+                example: There is not a user with these credentials
+    '300':  
+      description: account_is_active
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 300
+              type:
+                type: string
+                example: account_is_active
+              message:
+                type: string
+                example: Account has already been activated
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

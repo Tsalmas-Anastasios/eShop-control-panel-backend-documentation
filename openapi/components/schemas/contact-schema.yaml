@@ -1,0 +1,67 @@
+type: object
+title: contact_schema
+properties:
+  contact_id:
+    type: string
+  connected_account_id:
+    type: string
+  image_url:
+    type: string
+  prefix:
+    type: string
+  name:
+    type: string
+  father_name:
+    type: string
+  surname:
+    type: string
+  suffix:
+    type: string
+  mother_name:
+    type: string
+  name_in_speaking_format:
+    type: string
+  father_name_in_speaking_format:
+    type: string
+  alias:
+    type: string
+  archive_as:
+    type: string
+  company:
+    type: string
+  work_position_title:
+    type: string
+  work_department:
+    type: string
+  date_of_birth:
+    type: string | Date
+  website:
+    type: string
+  notes:
+    type: string
+  private:
+    type: boolean
+  private_user_id:
+    type: string
+  favorite:
+    type: boolean
+  contact_labels:
+    type: array
+    items:
+      $ref: ./contact-labels-schema.yaml
+  addresses:
+    type: array
+    items:
+      $ref: ./contact-addresses-schema.yaml
+  custom_fields:
+    type: array
+    items:
+      $ref: ./contact-custom-fields-schema.yaml
+  emails:
+    type: array
+    items:
+      $ref: ./contact-emails-schema.yaml
+  phones:
+    type: array
+    items:
+      $ref: ./contact-phones-schema.yaml

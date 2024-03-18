@@ -1,0 +1,132 @@
+type: object
+title: warehouses_analytical_details
+properties:
+  warehouse_id:
+    type: string
+  connected_account_id:
+    type: string
+  distinctive_title:
+    type: string
+  code_name:
+    type: string
+  ownership_type:
+    type: string
+  square_meters:
+    type: number
+  power_type:
+    type: string
+  warehouse_license_number:
+    type: string
+  building_permit_number:
+    type: string
+  building_year:
+    type: string
+  reception_exist:
+    type: boolean
+  parking_spaces:
+    type: number
+  unloading_vehicles_places_number:
+    type: number
+  energy_class:
+    type: string
+  bathrooms_number:
+    type: number
+  offices_number:
+    type: number
+  plot__street:
+    type: string
+  plot__postal_code:
+    type: string
+  plot__country:
+    type: string
+  plot__city:
+    type: string
+  plot__state:
+    type: string
+  plot__latitude:
+    type: number
+  plot__longitude:
+    type: number
+  contact__street:
+    type: string
+  contact__postal_code:
+    type: string
+  contact__country:
+    type: string
+  contact__city:
+    type: string
+  contact__state:
+    type: string
+  contact__latitude:
+    type: number
+  contact__longitude:
+    type: number
+  contact__phone:
+    type: string
+  warehouse_manager__fullname:
+    type: string
+  warehouse_manager__company_position:
+    type: string
+  warehouse_manager__date_of_birth:
+    type: string
+  warehouse_manager__social_security_number:
+    type: string
+  warehouse_manager__personal_tax_id:
+    type: string
+  warehouse_manager__phone:
+    type: string
+  warehouse_manager__phone2:
+    type: string
+  warehouse_manager__company_email:
+    type: string
+  warehouse_manager__personal_email:
+    type: string
+  runways:
+    type: array
+    items:
+      type: object
+      properties:
+        runway_id:
+          type: string
+        connected_account_id:
+          type: string
+        warehouse_id:
+          type: string
+        runway_name:
+          type: string
+        runway_code:
+          type: string
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              column_id:
+                type: string
+              connected_account_id:
+                type: string
+              warehouse_id:
+                type: string
+              runway_id:
+                type: string
+              column_name:
+                type: string
+              column_code:
+                type: string
+              shelf:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    shelf_id:
+                      type: string
+                    connected_account_id:
+                      type: string
+                    warehouse_id:
+                      type: string
+                    runway_id:
+                      type: string
+                    column_id:
+                      type: string
+                    shelf_code:
+                      type: string

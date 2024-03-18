@@ -1,0 +1,71 @@
+post:
+  tags:
+    - Contacts system
+  summary: Save contact's photo
+  description: |
+    Saves the contact's photo
+  operationId: saveContactPhoto
+  parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            company_logo:
+              type: string (binary)
+    description: Send here using the 'contact_photo' prefix the contact's photo
+    required: true
+  responses:
+    '200':  
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: contact_info_inserted_updated
+              message:
+                type: string
+                example: contact_info_inserted_updated
+              originalName:
+                type: string
+                example: contact-photo.png
+              mimetype:
+                type: string
+                example: png
+              destination:  
+                type: string
+                example: https://...
+              filename:
+                type: string
+                example: contact-photo-renamed.png
+              file_url:
+                type: string
+                example: https://.../contact-photo-renamed.png
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

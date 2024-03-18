@@ -1,0 +1,199 @@
+get:
+  tags:
+    - Company's warehouses
+  summary: Get warehouse
+  description: |
+    Get a specific warehouses identified by the warehouse id
+  operationId: getWarehouse
+  parameters:
+    - name: warehouse_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/warehouses.yaml
+    '404':
+      description: warehouse_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: warehouse_not_found
+              message:
+                type: string
+                example: Warehouse doesn't found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Company's warehouses
+  summary: Update warehouse
+  description: |
+    Update a specific warehouses identified by the warehouse id
+  operationId: updateWarehouse
+  parameters:
+    - name: warehouse_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/warehouses.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: warehouse_data_updated
+              message:
+                type: string
+                example: Warehouse data updated successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to be updated
+    '404':
+      description: warehouse_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: warehouse_not_found
+              message:
+                type: string
+                example: Warehouse doesn't found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Company's warehouses
+  summary: Delete warehouse
+  description: |
+    Delete a specific warehouses identified by the warehouse id
+  operationId: deleteWarehouse
+  parameters:
+    - name: warehouse_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: warehouse_deleted
+              message:
+                type: string
+                example: Warehouse deleted successfully
+    '404':
+      description: warehouse_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: warehouse_not_found
+              message:
+                type: string
+                example: Warehouse doesn't found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

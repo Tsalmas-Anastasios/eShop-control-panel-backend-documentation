@@ -1,0 +1,69 @@
+post:
+  tags:
+    - Contacts system
+  summary: New contact label
+  description: |
+    Add a specific label of available labels we can give to a contact.
+  operationId: addNewSpecific label
+  parameters:
+    - name: contact_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contact-labels-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':  
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: contact_label_added
+              message:
+                type: string
+                example: Contact label added successfully to the contact with id {contact_id}
+    '404':
+      description: contact_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: contact_not_found
+              message:
+                type: string
+                example: Contact not found!
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

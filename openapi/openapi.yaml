@@ -43,6 +43,12 @@ info:
     - **Newsletter system**: System for managing, creating and sending emails (newsletter) to the company's customers.
 
 
+    **Servers**
+
+    - https://localhost:8080/api
+
+    - https://control-panel.bizyhive.com/api
+
 
 tags:
   - name: Authentication
@@ -125,3 +131,41 @@ paths:
     $ref: paths/email-integrations/spec-email.yaml
   /account/settings/company-emails/test/test-email:
     $ref: paths/email-integrations/test-email.yaml
+  /settings/company-data/warehouses:
+    $ref: paths/company-warehouses/get-warehouses.yaml
+  /settings/company-data/warehouses/{warehouse_id}:
+    $ref: paths/company-warehouses/spec-warehouse.yaml
+  /settings/company-data/warehouses/w/add:
+    $ref: paths/company-warehouses/new-warehouse.yaml
+  /settings/connected-users/list:
+    $ref: paths/connected-users/get-users.yaml
+  /settings/connected-users/user/(user_id):
+    $ref: paths/connected-users/spec-user.yaml
+  /settings/connected-users/user/u/new:
+    $ref: paths/connected-users/new-user.yaml
+  /settings/connected-users/user/{user_id}/privileges:
+    $ref: paths/connected-users/modify-privileges.yaml
+  /settings/connected-users/user/{user_id}/password/change:
+    $ref: paths/connected-users/change-user-password.yaml
+  /settings/connected-users/primary-account:
+    $ref: paths/connected-users/get-primary-account.yaml
+  /settings/connected-users/resend-verification-email:
+    $ref: paths/connected-users/resend-verification-email.yaml
+  /manage/contacts/list:
+    $ref: paths/contacts-system/get-contacts-list.yaml
+  /manage/contacts/specific-list:
+    $ref: paths/contacts-system/specific-contacts-list.yaml
+  /manage/contacts/{contact_id}:
+    $ref: paths/contacts-system/spec-contact.yaml
+  /manage/contacts/n/new:
+    $ref: paths/contacts-system/new-contact.yaml
+  /manage/contacts/{contact_id}/p/photo-manage:
+    $ref: paths/contacts-system/contact-image-save.yaml
+  /manage/contacts/{contact_id}/p/favorite:
+    $ref: paths/contacts-system/contact-favorite-status.yaml
+  /manage/contacts/{contact_id}/labels/list:
+    $ref: paths/contacts-system/contact-labels-get-list.yaml
+  /manage/contacts/{contact_id}/labels/{label_id}:
+    $ref: paths/contacts-system/spec-contact-label.yaml
+  /manage/contacts/{contact_id}/labels/new:
+    $ref: paths/contacts-system/new-contact-label.yaml

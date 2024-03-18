@@ -1,0 +1,172 @@
+get:
+  tags:
+    - Contacts system
+  summary: Get contact
+  description: |
+    Get a specific contact
+  operationId: getSpecificContact
+  parameters:
+    - name: contact_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/contact-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Contacts system
+  summary: Update contact
+  description: |
+    Update a specific contact
+  operationId: updateSpecificContact
+  parameters:
+    - name: contact_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            contact:
+              type: object
+              properties:
+                $ref: ../../components/schemas/contact-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: contact_updated
+              message:
+                type: string
+                example: Contact update successfully!
+    '404':
+      description: contact_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: contact_not_found
+              message:
+                type: string
+                example: Contact to be updated not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Contacts system
+  summary: Delete contact
+  description: |
+    Delete a specific contact
+  operationId: deleteSpecificContact
+  parameters:
+    - name: contact_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: contact_delete
+              message:
+                type: string
+                example: Contact deleted successfully
+    '404':
+      description: contact_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: contact_not_found
+              message:
+                type: string
+                example: Contact to be updated not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

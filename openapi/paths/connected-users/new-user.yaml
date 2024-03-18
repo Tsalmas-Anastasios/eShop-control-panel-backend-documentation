@@ -1,0 +1,101 @@
+post:
+  tags:
+    - Connected users
+  summary: New user
+  description: |
+    Create a user account
+  operationId: newConnectedUser
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/register.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: user_account_created_successfully
+              activation_key:
+                type: string
+                example: 123456789123456789
+              new_user_id:
+                type: string
+                example: acc_jasfjkbafhjabjhabjshdbahsdb
+              username:
+                type: string
+              email:
+                type: string
+              message:
+                type: string
+                example: Account / User created successfully
+    '400':
+      description: bad_request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: bad_request
+              message:
+                type: string
+                example: '"Credentials to register the user are missing" | "The connected account credentials are missing" | "Company name is missing"'
+    '401':
+      description: username_exists, email_exists, phone_exists, invalid_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+              message:
+                type: string
+    '402':
+      description: password_out_of_range, password_not_strength
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 402
+              type:
+                type: string
+              message:
+                type: string
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

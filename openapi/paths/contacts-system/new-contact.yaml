@@ -1,0 +1,68 @@
+post:
+  tags:
+    - Contacts system
+  summary: New contact
+  description: |
+    New a specific contact
+  operationId: newSpecificContact
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            contact:
+              type: object
+              properties:
+                $ref: ../../components/schemas/contact-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: contact_added
+              message:
+                type: string
+                example: New contact added successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: missing data (name)
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
