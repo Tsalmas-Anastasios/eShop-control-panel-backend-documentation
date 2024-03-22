@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Contacts system
+  summary: Get label names list
+  description: |
+    Returns the list of available labels we can give to a contact.
+  operationId: getContactLabelNamesList
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/contact-labels-names.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

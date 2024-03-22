@@ -1,0 +1,186 @@
+get:
+  tags:
+    - Contacts system
+  summary: Get specific label name
+  description: |
+    Returns the specific label of available labels we can give to a contact.
+  operationId: getSpecificLabelName
+  parameters:
+    - name: label_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/contact-labels-names.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Contacts system
+  summary: Update specific label name
+  description: |
+    Update the specific label of available labels we can give to a contact.
+  operationId: updateSpecificLabelName
+  parameters:
+    - name: label_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            label:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: label_updated
+              message:
+                type: string
+                example: Label updated successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to update
+    '404':
+      description: label_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: label_not_found
+              message:
+                type: string
+                example: Label doesn't exist in current account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Contacts system
+  summary: Delete specific label name
+  description: |
+    Delete the specific label of available labels we can give to a contact.
+  operationId: deleteSpecificLabelName
+  parameters:
+    - name: label_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: label_deleted
+              message:
+                type: string
+                example: Label deleted successfully
+    '404':
+      description: label_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: label_not_found
+              message:
+                type: string
+                example: Label doesn't exist in current account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

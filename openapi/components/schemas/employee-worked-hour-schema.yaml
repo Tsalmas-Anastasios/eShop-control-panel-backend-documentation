@@ -1,0 +1,17 @@
+type: object
+title: employee_worked_hour_schema
+properties:
+  rec_id:
+    type: string
+  employee_id:
+    type: string
+  connected_account_id:
+    type: string
+  date_day:
+    type: string | Date
+  start_time:
+    type: string | Date
+  end_time:
+    type: string | Date
+  status:
+    type: "'confirmed' | 'done' | 'declined' | 'deleted'"

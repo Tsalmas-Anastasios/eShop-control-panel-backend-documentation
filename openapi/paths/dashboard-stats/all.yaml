@@ -1,0 +1,456 @@
+get:
+  tags:
+    - Dashboard stats
+  summary: Get all dashboard stats
+  description: |
+    Get the whole object with all dashboards stats that been visualized on home-dashboard
+  operationId: getAllDashboardStats
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: dashboard_stats
+              message:
+                type: string
+                example: New dashboard stats, e-Commerce Bizyhive Control Panel
+              stats:
+                type: object
+                properties:
+                  incomes:
+                    type: object
+                    properties:
+                      current_month:
+                        type: number
+                      last_month:
+                        type: number
+                      difference:
+                        type: object
+                        properties:
+                          total_sales_reduce_up_or_down:
+                            type: number
+                          total_sales_reduce_month:
+                            type: number
+                      month_analysis:
+                        january:
+                          type: number
+                        february:
+                          type: number
+                        march:
+                          type: number
+                        april:
+                          type: number
+                        may:
+                          type: number
+                        june:
+                          type: number
+                        july:
+                          type: number
+                        august:
+                          type: number
+                        september:
+                          type: number
+                        october:
+                          type: number
+                        november:
+                          type: number
+                        december:
+                          type: number
+                  orders:
+                    type: object
+                    properties:
+                      current_month:
+                        type: number
+                      last_month:
+                        type: number
+                      difference:
+                        orders_summary_reduce_up_or_down:
+                          type: number
+                        orders_summary_reduce_month:
+                          type: number
+                      monthly_by_status:
+                        confirmed_orders:
+                          type: number
+                        sent_orders:
+                          type: number
+                        completed_orders:
+                          type: number
+                        archived_orders:
+                          type: number
+                        returned_orders:
+                          type: number
+                      analytics:
+                        type: object
+                        properties:
+                          per_month:
+                            type: object
+                            properties:
+                              january:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              february:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              march:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              april:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              may:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              june:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              july:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              august:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              september:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              october:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              november:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                              december:
+                                type: object
+                                properties:
+                                  confirmed_orders:
+                                    type: number
+                                  sent_orders:
+                                    type: number
+                                  completed_orders:
+                                    type: number
+                                  archived_orders:
+                                    type: number
+                                  returned_orders:
+                                    type: number
+                                  total_orders:
+                                    type: number
+                          per_status:
+                            type: object
+                            properties:
+                              total_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+                              confirmed_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+                              sent_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+                              completed_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+                              archived_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+                              returned_orders:
+                                type: object
+                                properties:
+                                  january:
+                                    type: number
+                                  february:
+                                    type: number
+                                  march:
+                                    type: number
+                                  april:
+                                    type: number
+                                  may:
+                                    type: number
+                                  june:
+                                    type: number
+                                  july:
+                                    type: number
+                                  august:
+                                    type: number
+                                  september:
+                                    type: number
+                                  october:
+                                    type: number
+                                  november:
+                                    type: number
+                                  december:
+                                    type: number
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

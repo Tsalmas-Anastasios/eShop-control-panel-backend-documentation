@@ -1,0 +1,199 @@
+get:
+  tags:
+    - Employees system
+  summary: Get specific employee
+  description: |
+    Get specific employee of the company in question is returned
+  operationId: getSpecificEmployee
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/employee-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Employees system
+  summary: Update specific employee
+  description: |
+    Update specific employee of the company in question is returned
+  operationId: updateSpecificEmployee
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/employee-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: employee_basic_data_updated
+              message:
+                type: string
+                example: Employee basic data just updated!
+    '201':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: nothing_for_update
+              message:
+                type: string
+                example: Nothing to update
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Employees system
+  summary: Delete specific employee
+  description: |
+    Delete specific employee of the company in question is returned
+  operationId: deleteSpecificEmployee
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: employee_archived
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: employee_archived
+              message:
+                type: string
+                example: Employee archived
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '400':
+      description: wrong_status_to_delete
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: wrong_status_to_delete
+              message:
+                type: string
+                example: Invalid putted status value
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

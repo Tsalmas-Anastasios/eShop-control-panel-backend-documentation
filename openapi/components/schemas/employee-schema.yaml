@@ -1,0 +1,80 @@
+type: object
+title: employee_data
+properties:
+  employee_id:
+    type: string
+  first_name:
+    type: string
+  middle_name:
+    type: string
+  last_name:
+    type: string
+  fathers_name:
+    type: string
+  mothers_name:
+    type: string
+  mother_last_name:
+    type: string
+  tax_id:
+    type: string
+  social_security_number_amka:
+    type: string
+  date_of_birth:
+    type: string | Date
+  date_of_birth_epoch: number;
+  company:
+    type: string
+  position:
+    type: string
+  phone_number:
+    type: string
+  work_phone_number:
+    type: string
+  home_phone_number:
+    type: string
+  other_phone_number:
+    type: string
+  email:
+    type: string
+  work_email:
+    type: string
+  other_email:
+    type: string
+  address:
+    type: string
+  postal_code:
+    type: string
+  city:
+    type: string
+  notes:
+    type: string
+  facebook_url:
+    type: string
+  instagram_url:
+    type: string
+  linkedin_url:
+    type: string
+  messenger_url:
+    type: string
+  whatsup_url:
+    type: string
+  telegram_url:
+    type: string
+  viber_url:
+    type: string
+  status:
+    type:  "'active_full_time' | 'active_part_time' | 'inactive' | 'on_leave_paid' | 'on_leave_unpaid' | 'fired' | 'resigned'"
+  start_at:
+    type: string | Date
+  end_at:
+    type: string | Date
+  created_at:
+    type: string | Date
+  connected_account_id:
+    type: string
+  employee_done_payments:
+    $ref: ./employee-done-payment-schema.yaml
+  employee_payments:
+    $ref: ./employee-payment-schema.yaml
+  employee_worked_hours:
+    $ref: ./employee-worked-hour-schema.yaml

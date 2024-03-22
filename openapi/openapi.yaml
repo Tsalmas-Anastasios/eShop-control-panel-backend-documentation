@@ -169,9 +169,15 @@ paths:
     $ref: paths/contacts-system/spec-contact-label.yaml
   /manage/contacts/{contact_id}/labels/new:
     $ref: paths/contacts-system/new-contact-label.yaml
-
-
-
-
-
-#something for token
+  /manage/contacts/labels/names/list:
+    $ref: paths/contacts-system/contact-labels-names-list.yaml
+  /manage/contacts/labels/names/{label_id}:
+    $ref: paths/contacts-system/spec-contact-label-name.yaml
+  /manage/contacts/labels/names/new:
+    $ref: paths/contacts-system/new-spec-contact-label-name.yaml
+  /dashboard/stats/all:
+    $ref: paths/dashboard-stats/all.yaml
+  /manage/employees/list:
+    $ref: paths/employees-system/employee.yaml
+  /manage/employees/{employee_id}:
+    $ref: paths/employees-system/spec-employee.yaml

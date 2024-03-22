@@ -1,0 +1,21 @@
+type: object
+title: employee_payment_schema
+properties:
+  rec_id:
+    type: string
+  employee_id:
+    type: string
+  connected_account_id:
+    type: string
+  version_label:
+    type: string
+  hourly_payment:
+    type: string
+  payment_frequency:
+    type: string
+  hours_per_day:
+    type: string
+  initial_payment_date:
+    type: string | Date
+  active:
+    type: boolean

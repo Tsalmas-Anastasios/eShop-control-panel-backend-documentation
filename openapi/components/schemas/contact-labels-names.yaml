@@ -1,0 +1,9 @@
+type: object
+title: contact_labels_names_schema
+properties:
+  label_id:
+    type: string
+  label:
+    type: string
+  connected_account_id:
+    type: string

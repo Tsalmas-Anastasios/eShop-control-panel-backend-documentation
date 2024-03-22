@@ -1,0 +1,15 @@
+type: object
+title: employee_done_payment_schema
+properties:
+  rec_id:
+    type: string
+  employee_id:
+    type: string
+  connected_account_id:
+    type: string
+  payment_version_id:
+    type: string
+  payment_date_time:
+    type: string | Date
+  status:
+    type: 'done'

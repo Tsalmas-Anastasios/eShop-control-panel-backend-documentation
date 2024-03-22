@@ -1,0 +1,85 @@
+post:
+  tags:
+    - Contacts system
+  summary: New specific label name
+  description: |
+    Add  specific label for available labels we can give to a contact.
+  operationId: addSpecificLabelName
+  parameters:
+    - name: label_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            label:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: label_inserted
+              message:
+                type: string
+                example: Label inserted successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to post
+    '401':
+      description: label_already_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: label_already_exists
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
