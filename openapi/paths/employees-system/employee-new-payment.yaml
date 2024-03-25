@@ -1,0 +1,91 @@
+post:
+  tags:
+    - Employees system
+  summary: New specific employee's payment
+  description: |
+    New specific payment for an employee
+  operationId: newSpecificEmployeePayment
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            payment:
+              $ref: ../../components/schemas/employee-payment-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: payment_version_inserted
+              message:
+                type: string
+                example: Payment version inserted successfully
+              payment_version_id:
+                type: string
+                example: new_payment_version_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data to save new payment version
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,72 @@
+post:
+  tags:
+    - Employees system
+  summary: New specific employee's done payment
+  description: |
+    New specific done payment for an employee
+  operationId: newSpecificEmployeeDonePayment
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            payment:
+              $ref: ../../components/schemas/employee-done-payment-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: payment_done
+              message:
+                type: string
+                example: Payment completed & inserted to the archive
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

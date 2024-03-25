@@ -1,0 +1,79 @@
+get:
+  tags:
+    - Employees system
+  summary: Get specific employee's done payments
+  description: |
+    Get the specific list of done payments for an employee
+  operationId: getEmployeeDonePaymentsSpecList
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: rec_id
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: employee_id
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: connected_account_id
+      in: query
+      required: true
+      schema:
+        type: string
+    - name: payment_version_id
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: payment_date_time
+      in: query
+      required: false
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/employee-done-payment-schema.yaml
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

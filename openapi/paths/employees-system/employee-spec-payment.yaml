@@ -1,0 +1,249 @@
+get:
+  tags:
+    - Employees system
+  summary: Get specific employee's payment
+  description: |
+    Get a specific payment for an employee
+  operationId: getSpecificEmployeePayment
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: payment_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/employee-payment-schema.yaml
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Employees system
+  summary: Update specific employee's payment
+  description: |
+    Update a specific payment for an employee
+  operationId: updateSpecificEmployeePayment
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: payment_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            payment:
+              $ref: ../../components/schemas/employee-payment-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK - payment_version_updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: payment_version_updated
+              message:
+                type: string
+                example: Employee payment version updated successfully
+    '201':
+      description: OK - no_need_to_update
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: no_need_to_update
+              message:
+                type: string
+                example: Payment version doesn't need to be updated
+    '405':
+      description: payment_version_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 405
+              type:
+                type: string
+                example: payment_version_not_found
+              message:
+                type: string
+                example: Payment version doesn't exist
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Employees system
+  summary: Delete specific employee's payment
+  description: |
+    Delete a specific payment for an employee
+  operationId: deleteSpecificEmployeePayment
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: payment_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: payment_version_deleted
+              message:
+                type: string
+                example: Payment version deleted and cannot be restored
+    '405':
+      description: payment_version_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 405
+              type:
+                type: string
+                example: payment_version_not_found
+              message:
+                type: string
+                example: Payment version doesn't exist
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

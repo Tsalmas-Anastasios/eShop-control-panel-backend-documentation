@@ -183,3 +183,17 @@ paths:
     $ref: paths/employees-system/spec-employee.yaml
   /manage/employees/l/new:
     $ref: paths/employees-system/new-employee.yaml
+  /manage/employees/{employee_id}/payments/list:
+    $ref: paths/employees-system/employee-payments-list.yaml
+  /manage/employees/{employee_id}/payments/{payment_id}:
+    $ref: paths/employees-system/employee-spec-payment.yaml
+  /manage/employees/{employee_id}/payments/l/new:
+    $ref: paths/employees-system/employee-new-payment.yaml
+  /manage/employees/{employee_id}/payments/done/list:
+    $ref: paths/employees-system/employee-done-payments-list.yaml
+  /manage/employees/{employee_id}/payments/done/specific-list:
+    $ref: paths/employees-system/employee-done-payments-spec-list.yaml
+  /manage/employees/{employee_id}/payments/done/m/{payment_id}:
+    $ref: paths/employees-system/employee-spec-done-payment.yaml
+  /manage/employees/{employee_id}/payments/done/new:
+    $ref: paths/employees-system/employee-new-done-payment.yaml
