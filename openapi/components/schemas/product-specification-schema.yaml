@@ -1,0 +1,17 @@
+type: object
+title: product_specification_schema
+properties:
+  id:
+    type: string
+  category_name:
+    type: string
+  product_id:
+    type: string
+  connected_account_id:
+    type: string
+  product_version:
+    type: string
+  fields:
+    type: array
+    items:
+      $ref: ./product-specification-fields-schema.yaml

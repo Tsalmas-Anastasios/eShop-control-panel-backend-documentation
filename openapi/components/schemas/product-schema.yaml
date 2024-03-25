@@ -1,0 +1,63 @@
+type: object
+title: product_schema
+properties:
+  product_id:
+    type: string
+  headline:
+    type: string
+  product_brand:
+    type: string
+  categories_belongs:
+    type: any
+    example: '{"category_id_1": "category_value_1"}'
+  product_code:
+    type: string
+  product_model:
+    type: string
+  stock:
+    type: number
+  supplied_price:
+    type: number
+  clear_price:
+    type: number
+  fee_percent:
+    type: number
+  fees:
+    type: number
+  discount_percent:
+    type: number
+  discount:
+    type: number
+  specification:
+    type: array
+    items:
+      $ref: ./product-specification-schema.yaml
+  product_description:
+    type: string
+  supplier:
+    type: string
+  current_status:
+    type: "'in_stock' | 'available_1_to_3_days' | 'available_1_to_10_days' | 'available_1_to_30_days' | 'with_order' | 'unavailable' | 'temporary_unavailable' | 'out_of_stock' | 'ended' | 'closed'"
+    example: in_stock
+  archived:
+    type: boolean
+  notes:
+    type: string
+  connected_account_id:
+    type: string
+  created_at_epoch:
+    type: number
+  created_at:
+    type: 'string | Date'
+  current_version:
+    type: string
+  product_shared:
+    type: boolean
+  images:
+    type: array
+    items:
+      $ref: ./product-image-schema.yaml
+  product_stock:
+    type: array
+    items:
+      $ref: ./product-stock-schema.yaml

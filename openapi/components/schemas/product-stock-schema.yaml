@@ -1,0 +1,19 @@
+type: object
+title: product_stock_schema
+properties:
+  rec_id:
+    type: string
+  product_id:
+    type: string
+  connected_account_id:
+    type: string
+  warehouse_id:
+    type: string
+  runway_id:
+    type: string
+  column_id:
+    type: string
+  column_shelf_id:
+    type: string
+  stock_quantity:
+    type: number

@@ -1,0 +1,17 @@
+type: object
+title: product_specification_field_schema
+properties:
+  id:
+    type: string
+  specification_field_name:
+    type: string
+  specification_field_value:
+    type: string
+  specification_category_id:
+    type: string
+  product_id:
+    type: string
+  connected_account_id:
+    type: string
+  product_version:
+    type: string

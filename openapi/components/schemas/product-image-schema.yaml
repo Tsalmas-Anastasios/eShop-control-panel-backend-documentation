@@ -1,0 +1,19 @@
+type: object
+title: product_image_schema
+properties:
+  id:
+    type: string 
+  url:
+    type: string 
+  main_image:
+    type: boolean
+  product_id:
+    type: string 
+  archived:
+    type: boolean
+  created_at:
+    type: "string | Date"
+  connected_account_id:
+    type: string 
+  product_version:
+    type: string 

@@ -1,0 +1,79 @@
+get:
+  tags:
+    - Famous products
+  summary: Get list (by categories)
+  description: |
+    Get the famous products list (by them categories)
+  operationId: getFamousProductsListCategories
+  parameters:
+    - name: type
+      in: query
+      required: true
+      schema:
+        type: "'general' | 'yearly' | 'monthly' | 'weekly'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                product_category_id:
+                  type: string
+                product_category_label:
+                  type: string
+                products:
+                  type: array
+                  items:
+                    $ref: ../../components/schemas/product-schema.yaml
+    '404':
+      description: no_categories_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: no_categories_found
+              message:
+                type: string
+                example: No categories found
+    '400':
+      description: forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: forbidden
+              message:
+                type: string
+                example: Wrong type value!
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

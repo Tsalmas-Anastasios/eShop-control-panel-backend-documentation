@@ -207,3 +207,7 @@ paths:
     $ref: paths/employees-system/employee-new-worked-hour.yaml
   /manage/employees/{employee_id}/work-hours/n/new-multiple-days:
     $ref: paths/employees-system/employee-new-worked-hour-multiple.yaml
+  /ecommerce/store/products/famous/list:
+    $ref: paths/famous-products/general-list.yaml
+  /ecommerce/store/products/famous/list-category:
+    $ref: paths/famous-products/categories-list.yaml
