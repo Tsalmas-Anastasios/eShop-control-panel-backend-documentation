@@ -1,0 +1,63 @@
+post:
+  tags:
+    - Employees system
+  summary: New employee
+  description: |
+    Create a new employee for a specific company
+  operationId: newEmployeeBasicData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/employee-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: employee_inserted
+              message:
+                type: string
+                example: Employee inserted successfully
+              employee_id:
+                type: string
+                example: new_employee_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: Missing data & cannot save new employee
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

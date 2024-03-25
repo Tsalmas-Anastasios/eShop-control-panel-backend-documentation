@@ -181,3 +181,5 @@ paths:
     $ref: paths/employees-system/employee.yaml
   /manage/employees/{employee_id}:
     $ref: paths/employees-system/spec-employee.yaml
+  /manage/employees/l/new:
+    $ref: paths/employees-system/new-employee.yaml
