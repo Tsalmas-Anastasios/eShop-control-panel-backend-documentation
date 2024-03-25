@@ -197,3 +197,13 @@ paths:
     $ref: paths/employees-system/employee-spec-done-payment.yaml
   /manage/employees/{employee_id}/payments/done/new:
     $ref: paths/employees-system/employee-new-done-payment.yaml
+  /manage/employees/{employee_id}/work-hours:
+    $ref: paths/employees-system/employee-worked-hours-list.yaml
+  /manage/employees/{employee_id}/work-hours-specific:
+    $ref: paths/employees-system/employee-worked-hours-spec-list.yaml
+  /manage/employees/{employee_id}/work-hours/{rec_id}:
+    $ref: paths/employees-system/employee-spec-worked-hour.yaml
+  /manage/employees/{employee_id}/work-hours/n/new:
+    $ref: paths/employees-system/employee-new-worked-hour.yaml
+  /manage/employees/{employee_id}/work-hours/n/new-multiple-days:
+    $ref: paths/employees-system/employee-new-worked-hour-multiple.yaml

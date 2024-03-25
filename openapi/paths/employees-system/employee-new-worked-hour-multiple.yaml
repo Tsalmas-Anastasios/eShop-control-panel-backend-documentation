@@ -1,0 +1,75 @@
+post:
+  tags:
+    - Employees system
+  summary: Employee new worked hours (multiple)
+  description: |
+    Add new worked hours for an employee
+  operationId: newEmployeeWorkedHourMultiple
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: ../../components/schemas/employee-worked-hour-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: data_inserted_successfully
+              message:
+                type: string
+                example: Data for employee worked hours inserted successfully
+              new_records_id:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    date_day:
+                      type: string
+                      example: 10-12-2024
+                    new_record_id:
+                      type: string
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

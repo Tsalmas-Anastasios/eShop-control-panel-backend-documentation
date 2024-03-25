@@ -1,0 +1,244 @@
+get:
+  tags:
+    - Employees system
+  summary: Get employee's specific worked hour
+  description: |
+    Get a specific work hour for an employee
+  operationId: getEmployeeSpecWorkedHour
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: rec_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/employee-worked-hour-schema.yaml
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Employees system
+  summary: Update employee's specific worked hour
+  description: |
+    Update a specific work hour for an employee
+  operationId: updateEmployeeSpecWorkedHour
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: rec_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/employee-worked-hour-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK - data_updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: data_updated
+              message:
+                type: string
+                example: Data updated successfully
+    '201':
+      description: OK - nothing_to_update
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: nothing_to_update
+              message:
+                type: string
+                example: Nothing to update - Data is up to date
+    '405':
+      description: work_hours_version_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 405
+              type:
+                type: string
+                example: work_hours_version_not_found
+              message:
+                type: string
+                example: Work hours version not found
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Employees system
+  summary: Delete employee's specific worked hour
+  description: |
+    Delete a specific work hour for an employee
+  operationId: deleteEmployeeSpecWorkedHour
+  parameters:
+    - name: employee_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: rec_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            code:
+              type: number
+              example: 200
+            type:
+              type: string
+              example: data_deleted
+            message:
+              type: string
+              example: Data deleted successfully
+    '405':
+      description: work_hours_version_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 405
+              type:
+                type: string
+                example: work_hours_version_not_found
+              message:
+                type: string
+                example: Work hours version not found
+    '404':
+      description: employee_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: employee_not_found
+              message:
+                type: string
+                example: Employee doesn't exist
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
