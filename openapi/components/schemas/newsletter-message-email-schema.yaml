@@ -1,0 +1,13 @@
+type: object
+title: newsletter_message_email_schema
+properties:
+  rec_id:
+    type: string
+  connected_account_id:
+    type: string
+  message_id:
+    type: string
+  email_id:
+    type: string
+  email:
+    type: string

@@ -1,0 +1,358 @@
+get:
+  tags:
+    - Newsletter system
+  summary: Get specific message
+  description: |
+    Get a specific newsletter message
+  operationId: getSpecNewsletterMessage
+  parameters:
+    - name: message_id
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/newsletter-message-schema.yaml
+    '404':
+      description: message_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: message_not_found
+              message:
+                type: string
+                example: Message that you want to edit, not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Newsletter system
+  summary: Update specific message
+  description: |
+    Update a specific newsletter message
+  operationId: updateSpecNewsletterMessage
+  parameters:
+    - name: message_id
+      in: query
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              $ref: ../../components/schemas/newsletter-message-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: 200
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: message_updated
+              message:
+                type: string
+                example: Email updated successfully and saved to the cloud service
+              action:
+                type: string
+              message_id:
+                type: string
+                example: message_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data from your wrote message
+    '401':
+      description: undefined_message
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: undefined_message
+              message:
+                type: string
+                example: Undefined message. No message id provided
+    '404':
+      description: message_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: message_not_found
+              message:
+                type: string
+                example: Message that you want to edit, not found
+    '501':
+      description: wrong_action
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 501
+              type:
+                type: string
+                example: wrong_action
+              message:
+                type: string
+                example: Wrong action given
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Newsletter system
+  summary: Delete specific message
+  description: |
+    Delete a specific newsletter message
+  operationId: deleteSpecNewsletterMessage
+  parameters:
+    - name: message_id
+      in: query
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: message_deleted
+              message:
+                type: string
+                example: Message deleted successfully
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data from your wrote message
+    '404':
+      description: message_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: message_not_found
+              message:
+                type: string
+                example: Message that you want to edit, not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+post:
+  tags:
+    - Newsletter system
+  summary: New message
+  description: |
+    New newsletter message
+  operationId: newSpecNewsletterMessage
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            message:
+              $ref: ../../components/schemas/newsletter-message-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: message_saved
+              message:
+                type: string
+                example: Message saved successfully
+              action:
+                type: "'draft' | 'sent' | 'archived'"
+              message_id:
+                type: string
+                example: new_message_id
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing data from your wrote message
+    '401':
+      description: undefined_message
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: undefined_message
+              message:
+                type: string
+                example: Undefined message. No message id provided
+    '501':
+      description: wrong_action
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 501
+              type:
+                type: string
+                example: wrong_action
+              message:
+                type: string
+                example: Wrong action given
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

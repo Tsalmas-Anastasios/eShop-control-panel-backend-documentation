@@ -211,3 +211,7 @@ paths:
     $ref: paths/famous-products/general-list.yaml
   /ecommerce/store/products/famous/list-category:
     $ref: paths/famous-products/categories-list.yaml
+  /manage/newsletter/messages/list:
+    $ref: paths/newsletters-system/messages-list.yaml
+  /manage/newsletter/messages/specific-message:
+    $ref: paths/newsletters-system/message.yaml
