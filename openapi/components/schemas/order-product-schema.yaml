@@ -1,0 +1,33 @@
+type: object
+title: order_product_schema
+properties:
+  rec_id:
+    type: string
+  product_id:
+    type: string
+  order_id:
+    type: string
+  connected_account_id:
+    type: string
+  active:
+    type: boolean
+  archived:
+    type: boolean
+  quantity:
+    type: number
+  supplied_customer_price:
+    type: number
+  discount:
+    type: number
+  discount_percent:
+    type: number
+  fees:
+    type: number
+  fee_percent:
+    type: number
+  status:
+    type: "'static' | 'new' | 'updated' | 'deleted'"
+  main_image:
+    $ref: ./product-image-schema.yaml
+  product_details:
+    $ref: ./product-schema.yaml

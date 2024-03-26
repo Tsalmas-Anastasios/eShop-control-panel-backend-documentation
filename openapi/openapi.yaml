@@ -215,3 +215,15 @@ paths:
     $ref: paths/newsletters-system/messages-list.yaml
   /manage/newsletter/messages/specific-message:
     $ref: paths/newsletters-system/message.yaml
+  /ecommerce/store/orders/orders:
+    $ref: paths/orders-system/general-list.yaml
+  /ecommerce/store/orders/specific-orders:
+    $ref: paths/orders-system/specific-list.yaml
+  /ecommerce/store/orders/{order_id}:
+    $ref: paths/orders-system/spec-order.yaml
+  /ecommerce/store/orders/ord/new:
+    $ref: paths/orders-system/new-order.yaml
+  /ecommerce/store/orders/{order_id}/notes:
+    $ref: paths/orders-system/update-order-notes.yaml
+  /ecommerce/store/orders/{order_id}/order-seen:
+    $ref: paths/orders-system/update-order-seen.yaml

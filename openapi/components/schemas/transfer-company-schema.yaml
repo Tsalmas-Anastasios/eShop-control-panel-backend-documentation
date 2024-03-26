@@ -1,0 +1,19 @@
+type: object
+title: transfer_company_schema
+properties:
+  rec_id:
+    type: string
+  name:
+    type: string
+  type:
+    type: string
+  description:
+    type: string
+  banner_url:
+    type: string
+  main_url:
+    type: string
+  tracking_basic_url:
+    type: string
+  integrated:
+    type: boolean;

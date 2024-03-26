@@ -1,0 +1,68 @@
+get:
+  tags:
+    - Orders system
+  summary: Get specific list
+  description: |
+    Get the specific list of orders
+  operationId: getOrdersSpecificList
+  parameters:
+    - name: address
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: postal_code
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: city
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: country
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: transfer_courier
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: current_status
+      in: query
+      required: false
+      schema:
+        type: "'confirmed' | 'sent' | 'completed' | 'archived' | 'returned'"
+    - name: page
+      in: query
+      required: false
+      schema:
+        type: number
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/order-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

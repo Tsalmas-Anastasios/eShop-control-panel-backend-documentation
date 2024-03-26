@@ -1,0 +1,153 @@
+get:
+  tags:
+    - Orders system
+  summary: Get specific order
+  description: |
+    Get a specific order
+  operationId: getSpecOrder
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/order-schema.yaml
+    '404':
+      description: order_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: order_not_found
+              message:
+                type: string
+                example: Order doesn't found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Orders system
+  summary: Update specific order
+  description: |
+    Update a specific order
+  operationId: updateSpecOrder
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/order-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: order_updated
+              message:
+                type: string
+                example: Your order has been successfully updated!
+    '400':
+      description: missing_credentials_to_update_the_order
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_credentials_to_update_the_order
+              message:
+                type: string
+                example: Missing credentials and the order cannot be updated
+    '401':
+      description: missing_order_products_info
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: missing_order_products_info
+              message:
+                type: string
+                example: Missing products info and cannot be recognized
+    '404':
+      description: order_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: order_not_found
+              message:
+                type: string
+                example: Order doesn't found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

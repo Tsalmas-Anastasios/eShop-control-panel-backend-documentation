@@ -1,19 +1,30 @@
-get:
+put:
   tags:
     - Orders system
-  summary: Get list
+  summary: Update the 'viewed' status from an order
   description: |
-    Get the list of orders
-  operationId: getOrdersList
+    Update the 'viewed' status from an order
+  operationId: updateSpecOrderSeenStatus
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
   responses:
     '200':
       description: OK
       content:
         application/json:
           schema:
-            type: array
-            items:
-              $ref: ../../components/schemas/order-schema.yaml
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: order_seen
     '500':
       description: Internal server error
       content:

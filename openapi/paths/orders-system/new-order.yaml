@@ -1,0 +1,91 @@
+post:
+  tags:
+    - Orders system
+  summary: New order
+  description: |
+    Create a new order
+  operationId: newOrder
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/order-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: order_saved
+              message:
+                type: string
+                example: Your order has been successfully saved!
+              order_identifiers:
+                type: object
+                properties:
+                  order_id:
+                    type: string
+                    example: new_order_id
+                  order_number:
+                    type: string
+                    example: new_order_number
+                  invoice_data__invoice_number:
+                    type: string
+                    example: new_invoice_data__invoice_number
+    '400':
+      description: missing_credentials_to_update_the_order
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_credentials_to_update_the_order
+              message:
+                type: string
+                example: Missing credentials and the order cannot be updated
+    '401':
+      description: missing_order_products_info
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: missing_order_products_info
+              message:
+                type: string
+                example: Missing products info and cannot be recognized
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

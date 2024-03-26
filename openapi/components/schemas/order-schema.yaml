@@ -1,0 +1,117 @@
+type: object
+title: order_schema
+properties:
+  order_id:
+    type: string
+  proof:
+    type: "'receipt' | 'invoice'"
+  first_name:
+    type: string
+  last_name:
+    type: string
+  email:
+    type: string
+  address:
+    type: string
+  postal_code:
+    type: string
+  city:
+    type: string
+  country:
+    type: string
+  phone:
+    type: string
+  cell_phone:
+    type: string
+  confirm_date: 
+    type: string | Date
+  sent_date: 
+    type: string | Date
+  completed_date: 
+    type: string | Date
+  archived_date: 
+    type: string | Date
+  returned_date: 
+    type: string | Date
+  confirmed: 
+    type: boolean
+  sent: 
+    type: boolean
+  completed: 
+    type: boolean
+  transfer_courier:
+    type: string
+  transfer_courier_details:
+    $ref: ./transfer-company-schema.yaml
+  current_status:
+    type: "'confirmed' | 'sent' | 'completed' | 'archived' | 'returned'"
+  invoice_data__first_name:
+    type: string
+  invoice_data__last_name:
+    type: string
+  invoice_data__company:
+    type: string
+  invoice_data__tax_number:
+    type: string
+  invoice_data__doy:
+    type: string
+  invoice_data__address:
+    type: string
+  invoice_data__postal_code:
+    type: string
+  invoice_data__city:
+    type: string
+  invoice_data__country:
+    type: string
+  invoice_data__phone:
+    type: string
+  invoice_data__cell_phone:
+    type: string
+  invoice_data__is_valid:
+    type: boolean
+  payment_type:
+    type: string
+  payment_type_details:
+    $ref: ./payment-type-schema.yaml
+  connected_account_id:
+    type: string
+  order_number:
+    type: string
+  order_number_formatted:
+    type: any
+  invoice_data__invoice_number:
+    type: string
+  archived:
+    type: string
+  clear_value:
+    type: number
+  transportation:
+    type: number
+  cash_on_delivery_payment:
+    type: boolean
+  cash_on_delivery:
+    type: number
+  extra_fees:
+    type: boolean
+  extra_fees_costs:
+    type: number
+  fees:
+    type: number
+  fee_percent:
+    type: number
+  order_total:
+    type: number
+  tracking_number:
+    type: string
+  tracking_url:
+    type: string
+  notes:
+    type: string
+  order_seen:
+    type: boolean
+  company_data:
+    $ref: ./company-data.yaml
+  order_products:
+    type: array
+    items:
+      $ref: ./order-product-schema.yaml
