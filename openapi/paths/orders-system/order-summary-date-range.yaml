@@ -1,0 +1,148 @@
+get:
+  tags:
+    - Orders system
+  summary: Get orders summary in specific date range
+  description: |
+    Get orders summary in specific date range
+  operationId: getOrdersProductSpecificTypeDateRange
+  parameters:
+    - name: date
+      in: query
+      required: true
+      schema:
+        type: Date
+    - name: type
+      in: query
+      required: true
+      schema:
+        type: "'all' | 'general' | 'yearly' | 'monthly' | 'weekly' | 'range' | 'day'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              general_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              yearly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              monthly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              weekly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              range_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              day_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+    '400':
+      description: wrong_type_parameter
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: wrong_type_parameter
+              message:
+                type: string
+                example: You entered wrong value in type parameter. See the documentation and try again
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

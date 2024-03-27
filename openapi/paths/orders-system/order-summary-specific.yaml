@@ -1,0 +1,253 @@
+get:
+  tags:
+    - Orders system
+  summary: Get orders summary in the current time (with type choosement)
+  description: |
+    Get orders summary in the current time (with type choosement & specific orders status)
+  operationId: getOrdersProductSpecificType
+  parameters:
+    - name: status
+      in: query
+      required: true
+      schema:
+        type: "'all' | 'confirmed' | 'sent' | 'completed' | 'archived' | 'returned'"
+    - name: dateRange
+      in: query
+      required: true
+      schema:
+        type: "'all' | 'general' | 'yearly' | 'monthly' | 'weekly' | 'range' | 'day'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              all_data:
+                type: object
+                properties:
+                  general_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+                  yearly_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+                  monthly_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+                  weekly_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+                  range_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+                  day_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+              specific_dateRange:
+                type: object
+                properties:
+                  dateRange_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+              range_type:
+                type: object
+                properties:
+                  dateRange_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+              day_type:
+                type: object
+                properties:
+                  day_type:
+                    type: object
+                    properties:
+                      all_orders:
+                        type: number
+                      confirmed_orders:
+                        type: number
+                      sent_orders:
+                        type: number
+                      completed_orders:
+                        type: number
+                      archived_orders:
+                        type: number
+                      returned_orders:
+                        type: number
+    '400':
+      description: missing_date_range
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_date_range
+              message:
+                type: string
+                example: Once you choose the date range option you should parse the startDate and the endDate
+    '401':
+      description: wrong_type_value
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: wrong_type_value
+              message:
+                type: string
+                example: The type that you entered is wrong. See the documentation and try again
+    '402':
+      description: wrong_status_value
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 402
+              type:
+                type: string
+                example: wrong_status_value
+              message:
+                type: string
+                example: The status value that you entered is wrong. See the documentation and try again
+    '404':
+      description: no_records_exist
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: no_records_exist
+              message:
+                type: string
+                example: There aren't records yet. Please try again in some moments
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

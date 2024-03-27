@@ -219,11 +219,35 @@ paths:
     $ref: paths/orders-system/general-list.yaml
   /ecommerce/store/orders/specific-orders:
     $ref: paths/orders-system/specific-list.yaml
+  /ecommerce/store/orders/summary/count/all:
+    $ref: paths/orders-system/order-summary-all.yaml
+  /ecommerce/store/orders/summary/count/specific:
+    $ref: paths/orders-system/order-summary-specific.yaml
+  /ecommerce/store/orders/summary/count/spec-date-range:
+    $ref: paths/orders-system/order-summary-date-range.yaml
   /ecommerce/store/orders/{order_id}:
     $ref: paths/orders-system/spec-order.yaml
   /ecommerce/store/orders/ord/new:
     $ref: paths/orders-system/new-order.yaml
+  /ecommerce/store/orders/{order_id}/{new_status}:
+    $ref: paths/orders-system/order-status.yaml
   /ecommerce/store/orders/{order_id}/notes:
     $ref: paths/orders-system/update-order-notes.yaml
   /ecommerce/store/orders/{order_id}/order-seen:
     $ref: paths/orders-system/update-order-seen.yaml
+  /ecommerce/store/orders/upload-paper:
+    $ref: paths/orders-system/upload-order-papers.yaml
+  /ecommerce/store/orders/upload-paper/{paper_id}:
+    $ref: paths/orders-system/delete-order-paper.yaml
+  /ecommerce/store/orders/search/global-search:
+    $ref: paths/orders-system/search-orders.yaml
+  /ecommerce/store/orders/{order_id}/products:
+    $ref: paths/orders-system/get-orders-products.yaml
+  /ecommerce/store/orders/{order_id}/products/{product_id}:
+    $ref: paths/orders-system/get-spec-orders-product.yaml
+  /ecommerce/store/orders/{order_id}/products/{product_id}/{status}:
+    $ref: paths/orders-system/order-product-status.yaml
+  /payments/methods/list/active:
+    $ref: paths/orders-system/order-payment-method-list.yaml
+  /payments/methods/{payment_id}:
+    $ref: paths/orders-system/spec-order-payment-method.yaml

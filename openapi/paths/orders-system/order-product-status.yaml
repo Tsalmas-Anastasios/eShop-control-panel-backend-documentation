@@ -1,0 +1,72 @@
+put:
+  tags:
+    - Orders system
+  summary: Change status from order's product
+  description: |
+    Change status from order's product
+  operationId: changeOrderProductStatus
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: status
+      in: path
+      required: true
+      schema:
+        type: "'archive' | 'active'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: product_status_changed
+              message:
+                type: string
+                example: Product status changed successfully
+    '404':
+      description: order_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: order_not_found
+              message:
+                type: string
+                example: Order doesn't found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,103 @@
+post:
+  tags:
+    - Orders system
+  summary: Upload order's paper
+  description: |
+    Upload order's paper
+  operationId: uploadOrderPaper
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file_to_upload:
+              type: string (binary)
+      application/json:
+        schema:
+          type: object
+          properties:
+            order_id:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: file_uploaded
+              message:
+                type: string
+                example: file_uploaded_successfully
+              originalName:
+                type: string
+                example: order-paper.pdf
+              mimetype:
+                type: string
+                example: png
+              destination:  
+                type: string
+                example: https://...
+              filename:
+                type: string
+                example: order-paper-renamed.png
+              file_url:
+                type: string
+                example: https://.../order-paper-renamed.png
+    '400':
+      description: missing_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_data
+              message:
+                type: string
+                example: Missing required data to save the file
+    '401':
+      description: wrong_type_value
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: wrong_type_value
+              message:
+                type: string
+                example: Wrong type value!
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

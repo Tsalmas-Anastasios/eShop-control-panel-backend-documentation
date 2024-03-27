@@ -1,0 +1,159 @@
+get:
+  tags:
+    - Orders system
+  summary: Get orders summary in the current time
+  description: |
+    Get orders summary in the current time (all statuses)
+  operationId: getOrdersSummaryCurrentTime
+  parameters:
+    - name: type
+      in: query
+      required: true
+      schema:
+        type: "'all' | 'general' | 'yearly' | 'monthly' | 'weekly' | 'range' | 'day'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              general_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              yearly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              monthly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              weekly_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              range_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+              day_type:
+                type: object
+                properties:
+                  all_orders:
+                    type: number
+                  confirmed_orders:
+                    type: number
+                  sent_orders:
+                    type: number
+                  completed_orders:
+                    type: number
+                  archived_orders:
+                    type: number
+                  returned_orders:
+                    type: number
+    '201':
+      description: OK - no_records_exist
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: no_records_exist
+              message:
+                type: string
+                example: There aren't records yet. Please try again in some moments
+    '400':
+      description: wrong_type_for_retrieve
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: wrong_type_for_retrieve
+              message:
+                type: string
+                example: Entered wrong type for retrieve
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

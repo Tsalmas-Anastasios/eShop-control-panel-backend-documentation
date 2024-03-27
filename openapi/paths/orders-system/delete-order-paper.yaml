@@ -1,0 +1,46 @@
+delete:
+  tags:
+    - Orders system
+  summary: Delete order's paper
+  description: |
+    Delete order's paper
+  operationId: deleteOrderPaper
+  parameters:
+    - name: paper_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: file_deleted
+              message:
+                type: string
+                example: File deleted successfully
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

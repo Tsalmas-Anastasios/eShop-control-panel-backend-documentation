@@ -1,0 +1,72 @@
+put:
+  tags:
+    - Orders system
+  summary: Change order's status
+  description: |
+    Change order's status
+  operationId: updateOrderStatus
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: Date
+    - name: new_status
+      in: path
+      required: true
+      schema:
+        type: "'confirmed' | 'sent' | 'completed' | 'archived' | 'returned'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: order_updated_to_confirmed
+              message:
+                type: string
+                example: Order has been successfully updated with status {new_status}
+              updated_datetime:
+                type: Date
+              current_status:
+                type: "'confirmed' | 'sent' | 'completed' | 'archived' | 'returned'"
+                example: {new_status}
+    '404':
+      description: order_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: order_not_found
+              message:
+                type: string
+                example: Order doesn't found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,36 @@
+get:
+  tags:
+    - Orders system
+  summary: Get specific payment method
+  description: |
+    Get specific payment method
+  operationId: getSpecificPaymentMethod
+  parameters:
+    - name: payment_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/payment-type-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

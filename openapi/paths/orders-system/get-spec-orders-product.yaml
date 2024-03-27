@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Orders system
+  summary: Get specific product from an order
+  description: |
+    Get specific product from an order
+  operationId: getOrdersProductSpecific
+  parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/order-product-schema.yaml
+    '404':
+      description: order_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: order_not_found
+              message:
+                type: string
+                example: Order doesn't found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
