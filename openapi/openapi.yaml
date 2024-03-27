@@ -251,3 +251,27 @@ paths:
     $ref: paths/orders-system/order-payment-method-list.yaml
   /payments/methods/{payment_id}:
     $ref: paths/orders-system/spec-order-payment-method.yaml
+  /ecommerce/store/products/products:
+    $ref: paths/products-system/get-list.yaml
+  /ecommerce/store/products/specific-products:
+    $ref: paths/products-system/specific-list.yaml
+  /ecommerce/store/products/{product}:
+    $ref: paths/products-system/spec-product.yaml
+  /ecommerce/store/products/new:
+    $ref: paths/products-system/new-product.yaml
+  /ecommerce/store/products/{product_id}/notes/update:
+    $ref: paths/products-system/update-product-notes.yaml
+  /ecommerce/store/{product_id}/categories/update:
+    $ref: paths/products-system/update-categories.yaml
+  /ecommerce/store/products/{product_id}/get-shared-product:
+    $ref: paths/products-system/get-shared-product.yaml
+  /ecommerce/store/products/{product_id}/{status}:
+    $ref: paths/products-system/update-product-status.yaml
+  /ecommerce/store/products/search/global-search:
+    $ref: paths/products-system/product-search.yaml
+  /ecommerce/store/products/{product_id}/upload-image:
+    $ref: paths/products-system/upload-product-image-single.yaml
+  /ecommerce/store/products/{product_id}/upload-multiple-image:
+    $ref: paths/products-system/upload-product-image-multiple.yaml
+  /ecommerce/store/products/images/delete/{image_id}:
+    $ref: paths/products-system/delete-product-image.yaml

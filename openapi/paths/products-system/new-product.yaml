@@ -1,0 +1,72 @@
+get:
+  tags:
+    - Products system
+  summary: New product
+  description: |
+    Create a new product
+  operationId: createNewProduct
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/product-schema.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: successful_adding
+              message:
+                type: string
+                example: Product addition made successfully!
+              product_id:
+                type: string
+                example: new_product_id
+              product_code:
+                type: string
+                example: new_product_code
+              product_version:
+                type: string
+                example: new_product_version
+    '400':
+      description: forbidden
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: forbidden
+              message:
+                type: string
+                example: Missing data!
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

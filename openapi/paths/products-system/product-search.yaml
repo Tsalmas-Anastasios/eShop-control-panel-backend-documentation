@@ -1,0 +1,63 @@
+get:
+  tags:
+    - Products system
+  summary: Search products
+  description: |
+    Search products
+  operationId: searchProducts
+  parameters:
+    - name: product_code
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: headline
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: product_brand
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: product_model
+      in: query
+      required: false
+      schema:
+        type: string
+    - name: page
+      in: query
+      required: false
+      schema:
+        type: number
+    - name: limit
+      in: query
+      required: false
+      schema:
+        type: number
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../../components/schemas/product-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

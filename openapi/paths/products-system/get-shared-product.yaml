@@ -1,0 +1,68 @@
+get:
+  tags:
+    - Products system
+  summary: Get shared product
+  description: |
+    Get a shared product
+  operationId: getSharedProduct
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/schemas/product-schema.yaml
+    '400':
+      description: product_not_shared
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: product_not_shared
+              message:
+                type: string
+                example: This product is not shared
+    '404':
+      description: product_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_not_found
+              message:
+                type: string
+                example: Product doesn't exist on this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

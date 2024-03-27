@@ -1,0 +1,62 @@
+delete:
+  tags:
+    - Products system
+  summary: Delete product's image
+  description: |
+    Delete product's image
+  operationId: deleteProductImage
+  parameters:
+    - name: image_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: image_archived
+              message:
+                type: string
+                example: Image archived successfully
+    '201':
+      description: OK - image_archived_changed_main_image
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: image_archived_changed_main_image
+              message:
+                type: string
+                example: Product image archived successfully! Main image changed!
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

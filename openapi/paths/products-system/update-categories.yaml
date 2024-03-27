@@ -1,0 +1,73 @@
+put:
+  tags:
+    - Products system
+  summary: Update product's categories
+  description: |
+    Update product's categories
+  operationId: updateProductCategories
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            categories:
+              type: string
+              example: '{"category_id_1": "category_value_1"}'
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: product_categories_updated
+              message:
+                type: string
+                example: Product categories updated successfully
+    '404':
+      description: product_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_not_found
+              message:
+                type: string
+                example: Product doesn't exist on this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,72 @@
+put:
+  tags:
+    - Products system
+  summary: Update product's notes
+  description: |
+    Update product's notes
+  operationId: updateProductNotes
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            notes:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: product_notes_updated
+              message:
+                type: string
+                example: Product notes updated successfully
+    '404':
+      description: product_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_not_found
+              message:
+                type: string
+                example: Product doesn't exist on this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

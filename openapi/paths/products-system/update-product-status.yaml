@@ -1,0 +1,86 @@
+put:
+  tags:
+    - Products system
+  summary: Update product's status
+  description: |
+    Update product's status
+  operationId: updateProductStatus
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: status
+      in: path
+      required: true
+      schema:
+        type: "'in_stock' | 'available_1_to_3_days' | 'available_1_to_10_days' | 'available_1_to_30_days' | 'with_order' | 'unavailable' | 'temporary_unavailable' | 'out_of_stock' | 'ended' | 'closed' | 'archived'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: status_updated
+              message:
+                type: string
+                example: Status updated successfully
+              current_status:
+                type: "'in_stock' | 'available_1_to_3_days' | 'available_1_to_10_days' | 'available_1_to_30_days' | 'with_order' | 'unavailable' | 'temporary_unavailable' | 'out_of_stock' | 'ended' | 'closed' | 'archived'"
+                example: in_stock
+    '400':
+      description: wrong_status_value
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: wrong_status_value
+              message:
+                type: string
+                example: Wrong status value for this product
+    '404':
+      description: product_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_not_found
+              message:
+                type: string
+                example: Product not found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

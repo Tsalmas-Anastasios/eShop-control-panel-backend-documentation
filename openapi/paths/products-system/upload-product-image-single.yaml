@@ -1,0 +1,109 @@
+post:
+  tags:
+    - Products system
+  summary: Upload single product image
+  description: |
+    Upload single product image
+  operationId: updateSingleProductImage
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: main_image
+      in: query
+      required: true
+      schema:
+        type: number
+      description: The index of the main image for the product
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            product_image:
+              type: string (binary)
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: file_uploaded
+              message:
+                type: string
+                example: file_uploaded_successfully
+              originalName:
+                type: string
+                example: product-image.pdf
+              mimetype:
+                type: string
+                example: png
+              destination:  
+                type: string
+                example: https://...
+              filename:
+                type: string
+                example: product-image-renamed.png
+              file_url:
+                type: string
+                example: https://.../product-image-renamed.png
+    '201':
+      description: OK - no_files_found_to_save
+      content:
+        application/json: 
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: no_files_found_to_save
+              message:
+                type: string
+                example: No files found to be saved
+    '404':
+      description: product_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_not_found
+              message:
+                type: string
+                example: Product doesn't exist on this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
