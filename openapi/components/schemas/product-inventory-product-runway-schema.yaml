@@ -1,0 +1,25 @@
+type: object
+title: product_inventory_product_runway_schema
+properties:
+  rec_id:
+    type: string
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  rec_product_id:
+    type: string
+  rec_warehouse_id:
+    type: string
+  runway_id:
+    type: string
+  runway_name:
+    type: string
+  runway_code:
+    type: string
+  runway_total_stock:
+    type: number
+  columns:
+    type: array
+    items:
+      $ref: ./product-inventory-product-column-schema.yaml

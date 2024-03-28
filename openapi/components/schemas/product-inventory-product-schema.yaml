@@ -1,0 +1,25 @@
+type: object
+title: product_inventory_product_schema
+properties:
+  rec_product_id:
+    type: string
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  product_id:
+    type: string
+  product_headline:
+    type: string
+  product_brand:
+    type: string
+  product_model:
+    type: string
+  product_code:
+    type: string
+  inventory_product_stock:
+    type: number
+  warehouses:
+    type: array
+    items:
+      $ref: ./product-inventory-product-warehouse-schema.yaml

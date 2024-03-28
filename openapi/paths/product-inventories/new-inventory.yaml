@@ -1,0 +1,68 @@
+post:
+  tags:
+    - Products inventories
+  summary: New inventory
+  description: |
+    Creates new inventory
+  operationId: newProductInventory
+  parameters:
+    - name: send_email
+      in: query
+      required: false
+      schema:
+        type: boolean
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            descriptive_title:
+              type: string
+    description: requestBody description
+    required: false
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: string
+                example: 200
+              type:
+                type: string
+                example: inventory_created
+              message:
+                type: string
+                example: New products inventory created successfully!
+              inventory_data:
+                type: object
+                properties:
+                  inventory_id:
+                    type: string
+                    example: new_inventory_id
+                  descriptive_title:
+                    type: string
+                  inventory_products:
+                    type: array
+                    items:
+                      $ref: ../../components/schemas/product-inventory-product-schema.yaml
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

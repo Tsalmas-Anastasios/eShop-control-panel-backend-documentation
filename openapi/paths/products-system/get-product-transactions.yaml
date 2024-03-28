@@ -1,0 +1,94 @@
+get:
+  tags:
+    - Products system
+  summary: Get product's transactions
+  description: |
+    Get product's transactions
+  operationId: getProductTransactions
+  parameters:
+    - name: product_id
+      in: path
+      required: true
+      schema:
+        type: string
+    - name: page
+      in: path
+      required: false
+      schema:
+        type: number
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                rec_id:
+                  type: number
+                product_id:
+                  type: string
+                connected_account_id:
+                  type: string
+                updated_by:
+                  type: string
+                product_created_at: 
+                  type: string | Date;
+                whole_product_update:
+                  type: boolean
+                product_update_categories:
+                  type: boolean
+                added_category:
+                  type: string
+                removed_category:
+                  type: string
+                product_update_images:
+                  type: boolean
+                field_changed:
+                  type: string
+                value_before:
+                  type: string
+                value_after:
+                  type: string
+                quantity_sold:
+                  type: number
+                quantity_added:
+                  type: number
+                quantity_removed:
+                  type: number
+                warehouse_id:
+                  type: string
+                runway_id:
+                  type: string
+                column_id:
+                  type: string
+                column_shelf_id:
+                  type: string
+                purchased_price:
+                  type: number
+                status_changed:
+                  type: boolean
+                status_before:
+                  type: string
+                status_after:
+                  type: string
+                created_at: 
+                  type: string | Date;
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

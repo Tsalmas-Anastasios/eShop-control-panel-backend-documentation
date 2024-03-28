@@ -1,0 +1,86 @@
+post:
+  tags:
+    - Products system
+  summary: New category
+  description: |
+    Creates new product category
+  operationId: newProductCategory
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            pcategory_id:
+              type: string
+            label:
+              type: string
+            connected_account_id:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: product_category_connected
+              message:
+                type: string
+                example: Product category added successfully
+    '400':
+      description: product_category_already_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: product_category_already_exists
+              message:
+                type: string
+                example: This label of product category is already exist
+    '401':
+      description: missing_credentials
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: missing_credentials
+              message:
+                type: string
+                example: Missing label value
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

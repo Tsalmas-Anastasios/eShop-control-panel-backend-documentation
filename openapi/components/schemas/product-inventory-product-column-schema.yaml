@@ -1,0 +1,27 @@
+type: object
+title: product_inventory_product_column_schema
+properties:
+  rec_id:
+    type: string
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  rec_product_id:
+    type: string
+  rec_warehouse_id:
+    type: string
+  rec_runway_id:
+    type: string
+  column_id:
+    type: string
+  column_name:
+    type: string
+  column_code:
+    type: string
+  column_total_stock:
+    type: number
+  shelf:
+    type: array
+    items:
+      $ref: ./product-inventory-product-shelf-schema.yaml

@@ -1,0 +1,21 @@
+type: object
+title: product_inventory_schema
+properties:
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  descriptive_title:
+    type: string
+  created_at:
+    type: string | Date
+  created_by__user_id:
+    type: string
+  created_by__first_name:
+    type: string
+  created_by__last_name:
+    type: string
+  products:
+    type: array
+    items:
+      $ref: ./product-inventory-product-schema.yaml

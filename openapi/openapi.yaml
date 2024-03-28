@@ -38,6 +38,8 @@ info:
 
     - **Products system**: This resource provides methods for creating and fully managing the products that each company markets and manages.
 
+    - **Products inventories**: This resource provides methods to manage the product inventories and them settings
+    
     - **Total sales amount**: This resource provides methods for accessing sales statistics.
 
     - **Newsletter system**: System for managing, creating and sending emails (newsletter) to the company's customers.
@@ -73,6 +75,8 @@ tags:
     description: API EndPoints for Orders system
   - name: Products system
     description: API EndPoints for Products system
+  - name: Products inventories
+    description: API EndPoints for Products inventories
   - name: Total sales amount
     description: API EndPoints for Total sales amount
   - name: Newsletter system
@@ -275,3 +279,19 @@ paths:
     $ref: paths/products-system/upload-product-image-multiple.yaml
   /ecommerce/store/products/images/delete/{image_id}:
     $ref: paths/products-system/delete-product-image.yaml
+  /ecommerce/store/products/categories/list:
+    $ref: paths/products-system/product-categories-list.yaml
+  /ecommerce/store/products/c/categories/{pcategory_id}:
+    $ref: paths/products-system/specific-product-categories.yaml
+  /ecommerce/store/products/categories/new:
+    $ref: paths/products-system/new-product-category.yaml
+  /ecommerce/store/products/{product}/product-transactions:
+    $ref: paths/products-system/get-product-transactions.yaml
+  /products/inventories:
+    $ref: paths/product-inventories/get-list.yaml
+  /products/inventories-specific-data:
+    $ref: paths/product-inventories/get-basic-data-list.yaml
+  /products/inventories/{inventory_id}:
+    $ref: paths/product-inventories/get-spec-inventory.yaml
+  /products/inventories/n/new:
+    $ref: paths/product-inventories/new-inventory.yaml

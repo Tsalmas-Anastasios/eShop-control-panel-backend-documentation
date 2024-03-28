@@ -1,0 +1,23 @@
+type: object
+title: product_inventory_product_shelf_schema
+properties:
+  rec_id:
+    type: string
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  rec_product_id:
+    type: string
+  rec_warehouse_id:
+    type: string
+  rec_runway_id:
+    type: string
+  rec_column_id:
+    type: string
+  shelf_id:
+    type: string
+  shelf_code:
+    type: string
+  shelf_total_stock:
+    type: number

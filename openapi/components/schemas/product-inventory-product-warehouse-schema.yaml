@@ -1,0 +1,23 @@
+type: object
+title: product_inventory_product_warehouse_schema
+properties:
+  rec_id:
+    type: string
+  inventory_id:
+    type: string
+  connected_account_id:
+    type: string
+  rec_product_id:
+    type: string
+  warehouse_id:
+    type: string
+  warehouse_distinctive_title:
+    type: string
+  warehouse_code_name:
+    type: string
+  warehouse_total_stock:
+    type: number
+  runways:
+    type: array
+    items:
+      $ref: ./product-inventory-product-runway-schema.yaml

@@ -1,0 +1,197 @@
+get:
+  tags:
+    - Products system
+  summary: Get specific category
+  description: |
+    Get specific category
+  operationId: getSpecificCategory
+  parameters:
+    - name: pcategory_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              pcategory_id:
+                type: string
+              label:
+                type: string
+              connected_account_id:
+                type: string
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+put:
+  tags:
+    - Products system
+  summary: Update specific category
+  description: |
+    Update specific category
+  operationId: updateSpecificCategory
+  parameters:
+    - name: pcategory_id
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            pcategory_id:
+              type: string
+            label:
+              type: string
+            connected_account_id:
+              type: string
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: product_category_updated
+              message:
+                type: string
+                example: Product category updated successfully
+    '400':
+      description: product_category_already_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: product_category_already_exists
+              message:
+                type: string
+                example: This label of product category is already exist
+    '404':
+      description: product_category_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_category_not_found
+              message:
+                type: string
+                example: Product category not found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
+delete:
+  tags:
+    - Products system
+  summary: Delete specific category
+  description: |
+    Delete specific category
+  operationId: deleteSpecificCategory
+  parameters:
+    - name: pcategory_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: product_category_deleted
+              message:
+                type: string
+                example: Product category deleted successfully
+    '404':
+      description: product_category_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: product_category_not_found
+              message:
+                type: string
+                example: Product category not found for this account
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}
