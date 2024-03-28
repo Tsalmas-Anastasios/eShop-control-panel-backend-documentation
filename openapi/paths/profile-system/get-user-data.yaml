@@ -1,0 +1,51 @@
+get:
+  tags:
+    - Profile system
+  summary: Get profile's data
+  description: |
+    Get profile's data
+  operationId: getProfileData
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user_id:
+                type: string
+              email:
+                type: string
+              username:
+                type: string
+              first_name:
+                type: string
+              last_name:
+                type: string
+              phone:
+                type: string
+              profile_picture_url:
+                type: string
+              created_at:
+                type: string
+              role:
+                type: string
+              is_account:
+                type: boolean
+              connected_account:
+                type: string
+              using_bizyhive_cloud:
+                type: boolean
+              account_type:
+                type: string
+              authentication_2fa__app:
+                type: boolean
+              authentication_2fa__email:
+                type: boolean
+              authentication_2fa__app_secret:
+                type: string
+              company_data:
+                $ref: ../../components/schemas/company-data.yaml
+              privileges:
+                $ref: ../../components/schemas/user-privileges.yaml

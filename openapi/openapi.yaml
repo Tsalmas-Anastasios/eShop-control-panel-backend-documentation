@@ -26,6 +26,8 @@ info:
 
     - **Connected users**: This resource provides all the methods given for managing the users connected to the company, managing the rights to use the application as well as their information on the part of the administrators.
 
+    - **Profile system**: This resource provides all the methods given for managing the user's profile data
+    
     - **Contacts system**: This resource provides all methods given for creating and managing contacts and all associated items.
 
     - **Dashboard stats**: This resource provides all methods for getting and accessing statistics displayed in the application dashboard.
@@ -44,12 +46,14 @@ info:
 
     - **Newsletter system**: System for managing, creating and sending emails (newsletter) to the company's customers.
 
+    - **Utilities**: General utilities and more for the app
+
 
     **Servers**
 
-    - https://localhost:8080/api
+    - https://localhost:8080
 
-    - https://control-panel.bizyhive.com/api
+    - https://control-panel.bizyhive.com
 
 
 tags:
@@ -63,6 +67,8 @@ tags:
     description: API EndPoints for Company's warehouses
   - name: Connected users
     description: API EndPoints for Connected users
+  - name: Profile system
+    description: API EndPoints to manage the user's profile
   - name: Contacts system
     description: API EndPoints for Contacts system
   - name: Dashboard stats
@@ -81,217 +87,241 @@ tags:
     description: API EndPoints for Total sales amount
   - name: Newsletter system
     description: API EndPoints for Newsletter system
+  - name: Utilities
+    description: General utilities and jobs
 servers:
-  - url: https://localhost:8080/api
-  - url: https://control-panel.bizyhive.com/api
+  - url: https://localhost:8080
+  - url: https://control-panel.bizyhive.com
 paths:
-  /auth/login:
+  /api/auth/login:
     $ref: paths/authentication/login.yaml
-  /auth/register:
+  /api/auth/register:
     $ref: paths/authentication/register.yaml
-  /auth/email-activation:
+  /api/auth/email-activation:
     $ref: paths/authentication/email-activation.yaml
-  /auth/request-new-password:
+  /api/auth/request-new-password:
     $ref: paths/authentication/request-new-password.yaml
-  /auth/check-password-change-token:
+  /api/auth/check-password-change-token:
     $ref: paths/authentication/check-password-change-token.yaml
-  /auth/change-password:
+  /api/auth/change-password:
     $ref: paths/authentication/change-password.yaml
-  /auth/logout:
+  /api/auth/logout:
     $ref: paths/authentication/logout.yaml
-  /auth/change-password-directly:
+  /api/auth/change-password-directly:
     $ref: paths/authentication/change-password-directly.yaml
-  /authentication/account/security/2fa/email/authentication-code/send-email:
+  /api/authentication/account/security/2fa/email/authentication-code/send-email:
     $ref: paths/authentication/authentication-2fa-send-email.yaml
-  /settings/account/security/2fa/email/activate:
+  /api/settings/account/security/2fa/email/activate:
     $ref: paths/authentication/activate-2fa-mechanism-via-email.yaml
-  /settings/account/security/2fa/email/de-activate:
+  /api/settings/account/security/2fa/email/de-activate:
     $ref: paths/authentication/deActivate-2fa-mechanism-via-email.yaml
-  /authentication/account/security/2fa/email/authentication-code/check:
+  /api/authentication/account/security/2fa/email/authentication-code/check:
     $ref: paths/authentication/authentication-2fa-check-email.yaml
-  /authentication/account/security/2fa/app/authentication-code/key:
+  /api/authentication/account/security/2fa/app/authentication-code/key:
     $ref: paths/authentication/authentication-2fa-app-secret.yaml
-  /settings/accouns/security/2fa/app/enable:
+  /api/settings/accouns/security/2fa/app/enable:
     $ref: paths/authentication/activate-2fa-mechanism-via-app.yaml
-  /settings/account/security/2fa/app/disable:
+  /api/settings/account/security/2fa/app/disable:
     $ref: paths/authentication/deActivate-2fa-mechanism-via-app.yaml
-  /authentication/account/security/2fa/app/authentication-code/verify:
+  /api/authentication/account/security/2fa/app/authentication-code/verify:
     $ref: paths/authentication/verify-authentication-code-2fa-app.yaml
-  /settings/company-data/get:
+  /api/settings/company-data/get:
     $ref: paths/company-data/get-company-data.yaml
-  /settings/company-data/save-logo:
+  /api/settings/company-data/save-logo:
     $ref: paths/company-data/save-logo.yaml
   /api/settings/company-data/add-new-rec:
     $ref: paths/company-data/add-company-data.yaml
-  /settings/company-data/update/{rec_id}:
+  /api/settings/company-data/update/{rec_id}:
     $ref: paths/company-data/update-company-data.yaml
-  /settings/company-data/slug/check-exists:
+  /api/settings/company-data/slug/check-exists:
     $ref: paths/company-data/slug-exists.yaml
-  /account/settings/company-emails:
+  /api/account/settings/company-emails:
     $ref: paths/email-integrations/get-emails.yaml
-  /account/settings/company-emails/new:
+  /api/account/settings/company-emails/new:
     $ref: paths/email-integrations/new-email.yaml
-  /account/settings/company-emails/{email_id}:
+  /api/account/settings/company-emails/{email_id}:
     $ref: paths/email-integrations/spec-email.yaml
-  /account/settings/company-emails/test/test-email:
+  /api/account/settings/company-emails/test/test-email:
     $ref: paths/email-integrations/test-email.yaml
-  /settings/company-data/warehouses:
+  /api/settings/company-data/warehouses:
     $ref: paths/company-warehouses/get-warehouses.yaml
-  /settings/company-data/warehouses/{warehouse_id}:
+  /api/settings/company-data/warehouses/{warehouse_id}:
     $ref: paths/company-warehouses/spec-warehouse.yaml
-  /settings/company-data/warehouses/w/add:
+  /api/settings/company-data/warehouses/w/add:
     $ref: paths/company-warehouses/new-warehouse.yaml
-  /settings/connected-users/list:
+  /api/settings/connected-users/list:
     $ref: paths/connected-users/get-users.yaml
-  /settings/connected-users/user/(user_id):
+  /api/settings/connected-users/user/(user_id):
     $ref: paths/connected-users/spec-user.yaml
-  /settings/connected-users/user/u/new:
+  /api/settings/connected-users/user/u/new:
     $ref: paths/connected-users/new-user.yaml
-  /settings/connected-users/user/{user_id}/privileges:
+  /api/settings/connected-users/user/{user_id}/privileges:
     $ref: paths/connected-users/modify-privileges.yaml
-  /settings/connected-users/user/{user_id}/password/change:
+  /api/settings/connected-users/user/{user_id}/password/change:
     $ref: paths/connected-users/change-user-password.yaml
-  /settings/connected-users/primary-account:
+  /api/settings/connected-users/primary-account:
     $ref: paths/connected-users/get-primary-account.yaml
-  /settings/connected-users/resend-verification-email:
+  /api/settings/connected-users/resend-verification-email:
     $ref: paths/connected-users/resend-verification-email.yaml
-  /manage/contacts/list:
+  /api/manage/contacts/list:
     $ref: paths/contacts-system/get-contacts-list.yaml
-  /manage/contacts/specific-list:
+  /api/manage/contacts/specific-list:
     $ref: paths/contacts-system/specific-contacts-list.yaml
-  /manage/contacts/{contact_id}:
+  /api/manage/contacts/{contact_id}:
     $ref: paths/contacts-system/spec-contact.yaml
-  /manage/contacts/n/new:
+  /api/manage/contacts/n/new:
     $ref: paths/contacts-system/new-contact.yaml
-  /manage/contacts/{contact_id}/p/photo-manage:
+  /api/manage/contacts/{contact_id}/p/photo-manage:
     $ref: paths/contacts-system/contact-image-save.yaml
-  /manage/contacts/{contact_id}/p/favorite:
+  /api/manage/contacts/{contact_id}/p/favorite:
     $ref: paths/contacts-system/contact-favorite-status.yaml
-  /manage/contacts/{contact_id}/labels/list:
+  /api/manage/contacts/{contact_id}/labels/list:
     $ref: paths/contacts-system/contact-labels-get-list.yaml
-  /manage/contacts/{contact_id}/labels/{label_id}:
+  /api/manage/contacts/{contact_id}/labels/{label_id}:
     $ref: paths/contacts-system/spec-contact-label.yaml
-  /manage/contacts/{contact_id}/labels/new:
+  /api/manage/contacts/{contact_id}/labels/new:
     $ref: paths/contacts-system/new-contact-label.yaml
-  /manage/contacts/labels/names/list:
+  /api/manage/contacts/labels/names/list:
     $ref: paths/contacts-system/contact-labels-names-list.yaml
-  /manage/contacts/labels/names/{label_id}:
+  /api/manage/contacts/labels/names/{label_id}:
     $ref: paths/contacts-system/spec-contact-label-name.yaml
-  /manage/contacts/labels/names/new:
+  /api/manage/contacts/labels/names/new:
     $ref: paths/contacts-system/new-spec-contact-label-name.yaml
-  /dashboard/stats/all:
+  /api/dashboard/stats/all:
     $ref: paths/dashboard-stats/all.yaml
-  /manage/employees/list:
+  /api/manage/employees/list:
     $ref: paths/employees-system/employee.yaml
-  /manage/employees/{employee_id}:
+  /api/manage/employees/{employee_id}:
     $ref: paths/employees-system/spec-employee.yaml
-  /manage/employees/l/new:
+  /api/manage/employees/l/new:
     $ref: paths/employees-system/new-employee.yaml
-  /manage/employees/{employee_id}/payments/list:
+  /api/manage/employees/{employee_id}/payments/list:
     $ref: paths/employees-system/employee-payments-list.yaml
-  /manage/employees/{employee_id}/payments/{payment_id}:
+  /api/manage/employees/{employee_id}/payments/{payment_id}:
     $ref: paths/employees-system/employee-spec-payment.yaml
-  /manage/employees/{employee_id}/payments/l/new:
+  /api/manage/employees/{employee_id}/payments/l/new:
     $ref: paths/employees-system/employee-new-payment.yaml
-  /manage/employees/{employee_id}/payments/done/list:
+  /api/manage/employees/{employee_id}/payments/done/list:
     $ref: paths/employees-system/employee-done-payments-list.yaml
-  /manage/employees/{employee_id}/payments/done/specific-list:
+  /api/manage/employees/{employee_id}/payments/done/specific-list:
     $ref: paths/employees-system/employee-done-payments-spec-list.yaml
-  /manage/employees/{employee_id}/payments/done/m/{payment_id}:
+  /api/manage/employees/{employee_id}/payments/done/m/{payment_id}:
     $ref: paths/employees-system/employee-spec-done-payment.yaml
-  /manage/employees/{employee_id}/payments/done/new:
+  /api/manage/employees/{employee_id}/payments/done/new:
     $ref: paths/employees-system/employee-new-done-payment.yaml
-  /manage/employees/{employee_id}/work-hours:
+  /api/manage/employees/{employee_id}/work-hours:
     $ref: paths/employees-system/employee-worked-hours-list.yaml
-  /manage/employees/{employee_id}/work-hours-specific:
+  /api/manage/employees/{employee_id}/work-hours-specific:
     $ref: paths/employees-system/employee-worked-hours-spec-list.yaml
-  /manage/employees/{employee_id}/work-hours/{rec_id}:
+  /api/manage/employees/{employee_id}/work-hours/{rec_id}:
     $ref: paths/employees-system/employee-spec-worked-hour.yaml
-  /manage/employees/{employee_id}/work-hours/n/new:
+  /api/manage/employees/{employee_id}/work-hours/n/new:
     $ref: paths/employees-system/employee-new-worked-hour.yaml
-  /manage/employees/{employee_id}/work-hours/n/new-multiple-days:
+  /api/manage/employees/{employee_id}/work-hours/n/new-multiple-days:
     $ref: paths/employees-system/employee-new-worked-hour-multiple.yaml
-  /ecommerce/store/products/famous/list:
+  /api/ecommerce/store/products/famous/list:
     $ref: paths/famous-products/general-list.yaml
-  /ecommerce/store/products/famous/list-category:
+  /api/ecommerce/store/products/famous/list-category:
     $ref: paths/famous-products/categories-list.yaml
-  /manage/newsletter/messages/list:
+  /api/manage/newsletter/messages/list:
     $ref: paths/newsletters-system/messages-list.yaml
-  /manage/newsletter/messages/specific-message:
+  /api/manage/newsletter/messages/specific-message:
     $ref: paths/newsletters-system/message.yaml
-  /ecommerce/store/orders/orders:
+  /api/ecommerce/store/orders/orders:
     $ref: paths/orders-system/general-list.yaml
-  /ecommerce/store/orders/specific-orders:
+  /api/ecommerce/store/orders/specific-orders:
     $ref: paths/orders-system/specific-list.yaml
-  /ecommerce/store/orders/summary/count/all:
+  /api/ecommerce/store/orders/summary/count/all:
     $ref: paths/orders-system/order-summary-all.yaml
-  /ecommerce/store/orders/summary/count/specific:
+  /api/ecommerce/store/orders/summary/count/specific:
     $ref: paths/orders-system/order-summary-specific.yaml
-  /ecommerce/store/orders/summary/count/spec-date-range:
+  /api/ecommerce/store/orders/summary/count/spec-date-range:
     $ref: paths/orders-system/order-summary-date-range.yaml
-  /ecommerce/store/orders/{order_id}:
+  /api/ecommerce/store/orders/{order_id}:
     $ref: paths/orders-system/spec-order.yaml
-  /ecommerce/store/orders/ord/new:
+  /api/ecommerce/store/orders/ord/new:
     $ref: paths/orders-system/new-order.yaml
-  /ecommerce/store/orders/{order_id}/{new_status}:
+  /api/ecommerce/store/orders/{order_id}/{new_status}:
     $ref: paths/orders-system/order-status.yaml
-  /ecommerce/store/orders/{order_id}/notes:
+  /api/ecommerce/store/orders/{order_id}/notes:
     $ref: paths/orders-system/update-order-notes.yaml
-  /ecommerce/store/orders/{order_id}/order-seen:
+  /api/ecommerce/store/orders/{order_id}/order-seen:
     $ref: paths/orders-system/update-order-seen.yaml
-  /ecommerce/store/orders/upload-paper:
+  /api/ecommerce/store/orders/upload-paper:
     $ref: paths/orders-system/upload-order-papers.yaml
-  /ecommerce/store/orders/upload-paper/{paper_id}:
+  /api/ecommerce/store/orders/upload-paper/{paper_id}:
     $ref: paths/orders-system/delete-order-paper.yaml
-  /ecommerce/store/orders/search/global-search:
+  /api/ecommerce/store/orders/search/global-search:
     $ref: paths/orders-system/search-orders.yaml
-  /ecommerce/store/orders/{order_id}/products:
+  /api/ecommerce/store/orders/{order_id}/products:
     $ref: paths/orders-system/get-orders-products.yaml
-  /ecommerce/store/orders/{order_id}/products/{product_id}:
+  /api/ecommerce/store/orders/{order_id}/products/{product_id}:
     $ref: paths/orders-system/get-spec-orders-product.yaml
-  /ecommerce/store/orders/{order_id}/products/{product_id}/{status}:
+  /api/ecommerce/store/orders/{order_id}/products/{product_id}/{status}:
     $ref: paths/orders-system/order-product-status.yaml
-  /payments/methods/list/active:
+  /api/payments/methods/list/active:
     $ref: paths/orders-system/order-payment-method-list.yaml
-  /payments/methods/{payment_id}:
+  /api/payments/methods/{payment_id}:
     $ref: paths/orders-system/spec-order-payment-method.yaml
-  /ecommerce/store/products/products:
+  /api/ecommerce/store/products/products:
     $ref: paths/products-system/get-list.yaml
-  /ecommerce/store/products/specific-products:
+  /api/ecommerce/store/products/specific-products:
     $ref: paths/products-system/specific-list.yaml
-  /ecommerce/store/products/{product}:
+  /api/ecommerce/store/products/{product}:
     $ref: paths/products-system/spec-product.yaml
-  /ecommerce/store/products/new:
+  /api/ecommerce/store/products/new:
     $ref: paths/products-system/new-product.yaml
-  /ecommerce/store/products/{product_id}/notes/update:
+  /api/ecommerce/store/products/{product_id}/notes/update:
     $ref: paths/products-system/update-product-notes.yaml
-  /ecommerce/store/{product_id}/categories/update:
+  /api/ecommerce/store/{product_id}/categories/update:
     $ref: paths/products-system/update-categories.yaml
-  /ecommerce/store/products/{product_id}/get-shared-product:
+  /api/ecommerce/store/products/{product_id}/get-shared-product:
     $ref: paths/products-system/get-shared-product.yaml
-  /ecommerce/store/products/{product_id}/{status}:
+  /api/ecommerce/store/products/{product_id}/{status}:
     $ref: paths/products-system/update-product-status.yaml
-  /ecommerce/store/products/search/global-search:
+  /api/ecommerce/store/products/search/global-search:
     $ref: paths/products-system/product-search.yaml
-  /ecommerce/store/products/{product_id}/upload-image:
+  /api/ecommerce/store/products/{product_id}/upload-image:
     $ref: paths/products-system/upload-product-image-single.yaml
-  /ecommerce/store/products/{product_id}/upload-multiple-image:
+  /api/ecommerce/store/products/{product_id}/upload-multiple-image:
     $ref: paths/products-system/upload-product-image-multiple.yaml
-  /ecommerce/store/products/images/delete/{image_id}:
+  /api/ecommerce/store/products/images/delete/{image_id}:
     $ref: paths/products-system/delete-product-image.yaml
-  /ecommerce/store/products/categories/list:
+  /api/ecommerce/store/products/categories/list:
     $ref: paths/products-system/product-categories-list.yaml
-  /ecommerce/store/products/c/categories/{pcategory_id}:
+  /api/ecommerce/store/products/c/categories/{pcategory_id}:
     $ref: paths/products-system/specific-product-categories.yaml
-  /ecommerce/store/products/categories/new:
+  /api/ecommerce/store/products/categories/new:
     $ref: paths/products-system/new-product-category.yaml
-  /ecommerce/store/products/{product}/product-transactions:
+  /api/ecommerce/store/products/{product}/product-transactions:
     $ref: paths/products-system/get-product-transactions.yaml
-  /products/inventories:
+  /api/products/inventories:
     $ref: paths/product-inventories/get-list.yaml
-  /products/inventories-specific-data:
+  /api/products/inventories-specific-data:
     $ref: paths/product-inventories/get-basic-data-list.yaml
-  /products/inventories/{inventory_id}:
+  /api/products/inventories/{inventory_id}:
     $ref: paths/product-inventories/get-spec-inventory.yaml
-  /products/inventories/n/new:
+  /api/products/inventories/n/new:
     $ref: paths/product-inventories/new-inventory.yaml
+  /api/products/inventories/s/settings:
+    $ref: paths/product-inventories/get-settings.yaml
+  /api/products/inventories/settings/auto-generate-scheduling:
+    $ref: paths/product-inventories/update-setting-auto-generate-scheduling.yaml
+  /api/ecommerce/store/products/{product}/share-product:
+    $ref: paths/products-system/share-product.yaml
+  /api/ecommerce/store/products/{product}/non-share-product:
+    $ref: paths/products-system/unshare-product.yaml
+  /api/surl/s/create-new-url:
+    $ref: paths/utilities/create-short-url.yaml
+  /surl/:url_id:
+    $ref: paths/utilities/map-short-url.yaml
+  /api/stats/total-sales-amount/all-types:
+    $ref: paths/total-sales-amount/all-types.yaml
+  /api/stats/total-sales-amount/spec-date-range:
+    $ref: paths/total-sales-amount/spec-type.yaml
+  /api/settings/users/data/user-data:
+    $ref: paths/profile-system/get-user-data.yaml
+  /api/settings/users/profile/picture:
+    $ref: paths/profile-system/upload-profile-picture.yaml
+  /api/settings/users/profile/update-data:
+    $ref: paths/profile-system/update-profile-data.yaml

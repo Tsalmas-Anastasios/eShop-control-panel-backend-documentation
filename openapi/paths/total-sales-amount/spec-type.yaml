@@ -1,0 +1,67 @@
+get:
+  tags:
+    - Total sales amount
+  summary: Get specific type
+  description: |
+    Get specific type
+  operationId: getSpecTypeTotalSalesAmount
+  parameters:
+    - name: date
+      in: query
+      required: true
+      schema:
+        type: string | Date
+        example: '2024-03-28'
+    - name: type
+      in: query
+      required: true
+      schema:
+        type: "'general' | 'monthly' | 'weekly' | 'daily'"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            code:
+              type: number
+              example: 200
+            type:
+              type: string
+              example: amount
+            date:
+              type: string | Date
+              example: '2024-03-28'
+            amount:
+              type: float
+              example: 0.00
+    '400':
+      description: wrong_type_parameter
+      content:
+        application/json:
+          schema:
+            code:
+              type: number
+              example: 400
+            type:
+              type: string
+              example: wrong_type_parameter
+            message:
+              type: string
+              example: You entered wrong value in type parameter. See the documentation and try again
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

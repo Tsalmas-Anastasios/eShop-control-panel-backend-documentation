@@ -1,0 +1,56 @@
+get:
+  tags:
+    - Products inventories
+  summary: Get inventory settings
+  description: |
+    Get inventory settings
+  operationId: getInventorySettings
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              auto_generation_timeline:
+                type: object
+                properties:
+                  setting_id:
+                    type: number
+                  connected_account_id:
+                    type: string
+                  type:
+                    type: string
+                  value:
+                    type: string
+                  setting_auto_generate_date__day:
+                    type: string
+                  setting_auto_generate_date__month:
+                    type: string
+                  setting_auto_generate_date_frequency: 
+                    type: "'yearly' | 'monthly' | 'weekly' | 'daily'"
+                  setting_auto_generate_date_frequency__day:
+                    type: string
+                  setting_auto_generate_date_frequency__month:
+                    type: string
+                  meta:
+                    type: any
+              connected_account_id:
+                type: string
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

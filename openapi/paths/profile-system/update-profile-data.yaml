@@ -1,0 +1,148 @@
+put:
+  tags:
+    - Profile system
+  summary: Update profile data
+  description: |
+    Update profile data
+  operationId: updateProfileData
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            user_id:
+              type: string
+            email:
+              type: string
+            username:
+              type: string
+            first_name:
+              type: string
+            last_name:
+              type: string
+            phone:
+              type: string
+            profile_picture_url:
+              type: string
+            created_at:
+              type: string
+            role:
+              type: string
+            is_account:
+              type: boolean
+            connected_account:
+              type: string
+            using_bizyhive_cloud:
+              type: boolean
+            account_type:
+              type: string
+            authentication_2fa__app:
+              type: boolean
+            authentication_2fa__email:
+              type: boolean
+            authentication_2fa__app_secret:
+              type: string
+            company_data:
+              $ref: ../../components/schemas/company-data.yaml
+            privileges:
+              $ref: ../../components/schemas/user-privileges.yaml
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: user_updated
+              message:
+                type: string
+                example: User data updated successfully
+    '400':
+      description: missing_users_data
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 400
+              type:
+                type: string
+                example: missing_users_data
+              message:
+                type: string
+                example: Missing user's critical data
+    '401':
+      description: username_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 401
+              type:
+                type: string
+                example: username_exists
+              message:
+                type: string
+                example: Username already exists
+    '402':
+      description: email_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 402
+              type:
+                type: string
+                example: email_exists
+              message:
+                type: string
+                example: E-mail already exists
+    '403':
+      description: phone_exists
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 403
+              type:
+                type: string
+                example: phone_exists
+              message:
+                type: string
+                example: Phone already exists
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

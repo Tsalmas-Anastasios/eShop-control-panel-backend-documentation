@@ -1,0 +1,65 @@
+put:
+  tags:
+    - Profile system
+  summary: Upload profile picture
+  description: |
+    Upload profile picture
+  operationId: uploadProfilePicture
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            profile_picture:
+              type: string (binary)
+    description: Send here using the 'profile_picture' prefix the profile's picture
+    required: true
+  responses:
+    '200':  
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type: 
+                type: string
+                example: profile_picture_updated
+              message:
+                type: string
+                example: profile_picture_updated
+              originalName:
+                type: string
+                example: profile-picture.png
+              mimetype:
+                type: string
+                example: png
+              destination:  
+                type: string
+                example: https://...
+              filename:
+                type: string
+                example: profile-picture-renamed.png
+              file_url:
+                type: string
+                example: https://.../profile-picture-renamed.png
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

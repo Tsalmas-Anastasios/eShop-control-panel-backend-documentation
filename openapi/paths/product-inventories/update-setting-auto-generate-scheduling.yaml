@@ -1,0 +1,143 @@
+put:
+  tags:
+    - Products inventories
+  summary: Update setting "Auto generate scheduling"
+  description: |
+    Update setting "Auto generate scheduling"
+  operationId: updateSettingAutoGenerateScheduling
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            setting_data:
+              type: object
+              properties:
+                setting_id:
+                  type: number
+                connected_account_id:
+                  type: string
+                type:
+                  type: string
+                value:
+                  type: string
+                setting_auto_generate_date__day:
+                  type: string
+                setting_auto_generate_date__month:
+                  type: string
+                setting_auto_generate_date_frequency: 
+                  type: "'yearly' | 'monthly' | 'weekly' | 'daily'"
+                setting_auto_generate_date_frequency__day:
+                  type: string
+                setting_auto_generate_date_frequency__month:
+                  type: string
+                meta:
+                  type: any
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK - setting_inserted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: setting_inserted
+              updated_object:
+                type: object
+                properties:
+                  setting_id:
+                    type: number
+                  connected_account_id:
+                    type: string
+                  type:
+                    type: string
+                  value:
+                    type: string
+                  setting_auto_generate_date__day:
+                    type: string
+                  setting_auto_generate_date__month:
+                    type: string
+                  setting_auto_generate_date_frequency: 
+                    type: "'yearly' | 'monthly' | 'weekly' | 'daily'"
+                  setting_auto_generate_date_frequency__day:
+                    type: string
+                  setting_auto_generate_date_frequency__month:
+                    type: string
+                  meta:
+                    type: any
+    '201':
+      description: OK - setting_updated
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: setting_updated
+              updated_object:
+                type: object
+                properties:
+                  setting_id:
+                    type: number
+                  connected_account_id:
+                    type: string
+                  type:
+                    type: string
+                  value:
+                    type: string
+                  setting_auto_generate_date__day:
+                    type: string
+                  setting_auto_generate_date__month:
+                    type: string
+                  setting_auto_generate_date_frequency: 
+                    type: "'yearly' | 'monthly' | 'weekly' | 'daily'"
+                  setting_auto_generate_date_frequency__day:
+                    type: string
+                  setting_auto_generate_date_frequency__month:
+                    type: string
+                  meta:
+                    type: any
+    '202':
+      description: OK - setting_deleted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 201
+              type:
+                type: string
+                example: setting_deleted
+              message:
+                type: string
+                example: setting deleted successfully
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

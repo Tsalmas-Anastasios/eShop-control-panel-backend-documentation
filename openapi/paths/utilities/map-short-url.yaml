@@ -1,0 +1,48 @@
+get:
+  tags:
+    - Utilities
+  summary: Map short Url
+  description: |
+    Map short Url
+  operationId: mapNewShortUrl
+  parameters:
+    - name: url_id
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    '200':
+      description: OK - creates redirect
+    '404':
+      description: page_not_found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 404
+              type:
+                type: string
+                example: page_not_found
+              message:
+                type: string
+                example: Page not found - 404 error
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

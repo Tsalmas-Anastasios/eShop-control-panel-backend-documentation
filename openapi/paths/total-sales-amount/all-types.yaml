@@ -1,0 +1,46 @@
+get:
+  tags:
+    - Total sales amount
+  summary: Get all types
+  description: |
+    Get all types
+  operationId: getAllTypesTotalSalesAmount
+  parameters:
+    - name: date
+      in: query
+      required: true
+      schema:
+        type: string | Date
+        example: '2024-03-28'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              general_amount:
+                type: number
+              yearly_amount:
+                type: number
+              monthly_amount:
+                type: number
+              weekly_amount:
+                type: number
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

@@ -1,0 +1,54 @@
+post:
+  tags:
+    - Utilities
+  summary: Create short Url
+  description: |
+    Create short Url
+  operationId: createNewShortUrl
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            link:
+              type: string
+              example: https://example.com
+    description: requestBody description
+    required: true
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 200
+              type:
+                type: string
+                example: new_url_generated
+              message:
+                type: string
+                example: New url generated successfully
+              short_url:
+                type: string
+                example: https://new-url
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              code:
+                type: number
+                example: 500
+              type:
+                type: string
+                example: internal_server_error
+              message:
+                type: object | string
+                example: {}

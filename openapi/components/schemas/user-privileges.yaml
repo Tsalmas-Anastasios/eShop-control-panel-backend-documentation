@@ -1,0 +1,15 @@
+type: array
+title: user_privileges
+items:
+  type: object
+  properties:
+    rec_id:
+      type: number
+    privilege_type:
+      type: string
+    value:
+      type: boolean
+    user_id:
+      type: string
+    connected_account_id:
+      type: string

@@ -1,0 +1,8 @@
+get:
+  tags:
+    - Connected users
+  summary: Get user roles list
+  description: |
+    Get list with the user roles
+  operationId: getUserRolesList
+  
